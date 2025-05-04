@@ -1,28 +1,26 @@
-package com.example.emtyapp.nav
+package com.example.myapplication.nav
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.compose.NavType
 
+
+// Définition des routes
 object Routes {
     const val Home = "home"
     const val ProductDetails = "productDetails"
 }
 
+// Composable principal qui gère la navigation
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
@@ -45,6 +43,7 @@ fun AppNavigation() {
     }
 }
 
+// Écran d’accueil avec la liste des produits (simple ici)
 @Composable
 fun HomeScreen(onNavigateToDetails: (String) -> Unit) {
     Column(
@@ -62,6 +61,7 @@ fun HomeScreen(onNavigateToDetails: (String) -> Unit) {
     }
 }
 
+// Écran de détails du produit
 @Composable
 fun DetailsScreen(productId: String) {
     Column(
