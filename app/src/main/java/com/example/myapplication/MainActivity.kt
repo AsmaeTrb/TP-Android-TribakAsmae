@@ -5,11 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.model.Product
 import com.example.myapplication.nav.AppNavigation
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
@@ -32,5 +29,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     MyApplicationTheme {
+        com.example.myapplication.nav.HomeScreen(onNavigateToDetails = {})
     }
 }
