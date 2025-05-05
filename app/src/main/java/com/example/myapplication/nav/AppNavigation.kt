@@ -13,15 +13,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.NavType
 import com.example.myapplication.model.Product
-
-
-// Définition des routes
 object Routes {
     const val Home = "home"
     const val ProductDetails = "productDetails"
 }
 
-// Composable principal qui gère la navigation
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
@@ -44,7 +40,6 @@ fun AppNavigation() {
     }
 }
 
-// Écran d’accueil avec la liste des produits (simple ici)
 @Composable
 fun HomeScreen(onNavigateToDetails: (String) -> Unit) {
     val products = listOf(
@@ -99,7 +94,6 @@ fun HomeScreen(onNavigateToDetails: (String) -> Unit) {
     }
 }
 
-// Écran de détails du produit
 @Composable
 fun DetailsScreen(productId: String) {
     Column(
