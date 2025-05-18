@@ -2,7 +2,7 @@
 Ce projet est une application Android développée avec Kotlin et Jetpack Compose .
 
 Elle permet d’afficher une liste de produits  et d’accéder aux détails d’un produit grâce à Navigation Compose .
-
+L’architecture adoptée est MVI (Model - View - Intent), ce qui permet une meilleure séparation des responsabilités .
 ---
 
 ## 🔧 Dépendances principales
