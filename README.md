@@ -16,5 +16,5 @@ Ce projet utilise notamment :
 
 ## Captures d’écran
 
-![Liste des produits](https://github.com/AsmaeTrb/TP-Android-TribakAsmae/blob/master/AndroidListeProduct.png?raw=true)  
-![Détails du produit](https://github.com/AsmaeTrb/TP-Android-TribakAsmae/blob/master/AndroidDetails.png?raw=true)
+![Liste des produits](https://github.com/AsmaeTrb/TP-Android-TribakAsmae/blob/master/listeproduits.png?raw=true)  
+![Détails du produit](https://github.com/AsmaeTrb/TP-Android-TribakAsmae/blob/master/details.png?raw=true)
