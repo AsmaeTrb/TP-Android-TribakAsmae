@@ -35,3 +35,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 dagger-hilt-compiler = { id = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = "androidx.hilt:hilt-navigation-compose:1.1.0"

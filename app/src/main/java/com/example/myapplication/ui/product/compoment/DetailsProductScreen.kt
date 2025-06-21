@@ -60,8 +60,8 @@ fun DetailsProductScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    val imageResId = when (it.image) {
-                        "image1" -> R.drawable.image1
+                    val imageResId = when (it.image1) {
+                        "image1" -> R.drawable.im1
                         "image2" -> R.drawable.image2
                         "image3" -> R.drawable.image3
                         else -> null
