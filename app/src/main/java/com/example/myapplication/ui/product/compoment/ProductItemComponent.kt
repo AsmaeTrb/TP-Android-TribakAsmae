@@ -1,16 +1,23 @@
 package com.example.myapplication.ui.product.compoment
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
-import com.example.myapplication.model.Product
-
+import com.example.myapplication.data.Entities.Product
 @Composable
 fun ProductItemComponent(product: Product, onClick: () -> Unit) {
     val imageResId = when (product.image) {
@@ -20,31 +27,40 @@ fun ProductItemComponent(product: Product, onClick: () -> Unit) {
         else -> null
     }
 
-    Row(
+    Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .width(160.dp)
+            .height(180.dp)
+            .padding(4.dp),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(6.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFFFF0F0)) // rose clair
     ) {
-        imageResId?.let {
-            Image(
-                painter = painterResource(id = it),
-                contentDescription = product.nameProduct,
-                modifier = Modifier
-                    .size(80.dp)
-                    .padding(end = 8.dp)
-            )
-        }
-
         Column(
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+                .clickable { onClick() },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = product.nameProduct)
-            Text(text = "${product.price} MAD")
-        }
+            imageResId?.let {
+                Image(
+                    painter = painterResource(id = it),
+                    contentDescription = product.nameProduct,
+                    modifier = Modifier
+                        .size(80.dp)
+                        .padding(8.dp)
+                )
+            }
 
-        Button(onClick = onClick) {
-            Text("Détails")
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = product.nameProduct.uppercase(),
+                fontSize = 14.sp,
+                color = Color(0xFF333333)
+            )
         }
     }
 }
