@@ -1,685 +1,232 @@
 [
   {
-    "id": "13",
-    "name": "Gavroche 45",
-    "sizes": [
-      {
-        "size": "Taille Unique",
-        "quantity": 10
-      }
-    ],
-    "price": 240,
-    "description": "Gavroche en twill 100 % soie roulotté à la main. Facile et versatile, ce petit format iconique se porte dans les cheveux, autour du cou ou sur un sac !",
-    "image1": "im27.jpg",
-    "image2": "im28.jpg",
-    "category": "bijouterieetmontres",
-    "color": "crème",
-    "origin": "France",
-    "createdAt": "2025-06-15T10:00:00Z"
-  },
-  {
-    "id": "11",
-    "name": "Chemise en popeline compacte",
-    "price": 210,
-    "color": "Blanc",
-    "description": "Chemise en popeline compacte...",
-    "image1": "im13.jpg",
-    "image2": "im14.jpg",
-    "category": "hommes",
-    "sizes": [
-      {
-        "size": "38",
-        "quantity": 14
-      },
-      {
-        "size": "39",
-        "quantity": 3
-      },
-      {
-        "size": "40",
-        "quantity": 6
-      },
-      {
-        "size": "41",
-        "quantity": 4
-      },
-      {
-        "size": "42",
-        "quantity": 3
-      },
-      {
-        "size": "43",
-        "quantity": 2
-      },
-      {
-        "size": "44",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "id": "23",
-    "name": "Picotin Équipages d'Hermès",
-    "price": 18100,
-    "color": "Fauve",
-    "description": "Meuble d'appoint avec structure en érable. Panier en osier entrelacé de cuir et couvercles à rabats en taurillon H. Une pièce artisanale élégante et fonctionnelle.",
-    "image1": "im43.jpg",
-    "image2": "im44.jpg",
-    "category": "maison",
-    "origin": "Italie",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 0
-      }
-    ]
-  },
-  {
-    "id": "14",
-    "name": "Set de bain Cabriole",
-    "price": 900,
-    "color": "Vert aqua",
-    "description": "Set de bain avec carré de bain, sortie de bain et brosse à cheveux. Carré de bain et sortie de bain en éponge brodée (100 % coton) et seersucker (100 % coton). Broderies (96 % polyester, 4 % céramique). Brosse à cheveux en bois de citronnier et poil de chèvre avec impression sur bois. Grammage : 680g/m².",
-    "image1": "im59.jpg",
-    "image2": "im60.jpg",
-    "category": "enfants",
-    "origin": "France",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "id": "15",
-    "name": "Robe chemise",
-    "sizes": [
-      {
-        "size": "34",
-        "quantity": 5
-      },
-      {
-        "size": "36",
-        "quantity": 5
-      },
-      {
-        "size": "38",
-        "quantity": 5
-      },
-      {
-        "size": "40",
-        "quantity": 5
-      },
-      {
-        "size": "42",
-        "quantity": 5
-      },
-      {
-        "size": "44",
-        "quantity": 5
-      }
-    ],
-    "price": 2800,
-    "description": "Robe chemise en twill de coton avec col, boutons-pression palladiés, poches plaquées, taille cintrée ajustable, bas évasé. Fabriqué en France.",
-    "image1": "im25.jpg",
-    "image2": "im26.jpg",
-    "category": "femmes",
-    "color": "blanc",
-    "origin": "France"
-  },
-  {
-    "id": "17",
-    "name": "T-shirt mini patch cuir « H'Cheval »",
-    "sizes": [
-      {
-        "size": "S",
-        "quantity": 3
-      },
-      {
-        "size": "M",
-        "quantity": 5
-      },
-      {
-        "size": "L",
-        "quantity": 5
-      },
-      {
-        "size": "XL",
-        "quantity": 2
-      },
-      {
-        "size": "XXL",
-        "quantity": 2
-      }
-    ],
-    "price": 650,
-    "description": "T-shirt « H'Cheval » en coton (100 % coton) avec col rond, manches courtes, et mini patch « H'Cheval » en cuir d'agneau lavable.",
-    "image1": "im29.jpg",
-    "image2": "im30.jpg",
-    "category": "hommes",
-    "color": "céladon",
-    "createdAt": "2025-06-19T10:00:00Z",
-    "origin": "Italie"
-  },
-  {
-    "id": "18",
-    "name": "Ceinture Romain 25",
-    "sizes": [
-      {
-        "size": "75",
-        "quantity": 3
-      },
-      {
-        "size": "80",
-        "quantity": 5
-      },
-      {
-        "size": "90",
-        "quantity": 3
-      },
-      {
-        "size": "95",
-        "quantity": 3
-      },
-      {
-        "size": "100",
-        "quantity": 2
-      }
-    ],
-    "price": 795,
-    "description": "Ceinture en vache Hunter, boucle en métal palladié. Affinée, la ceinture Romain se réinvente en largeur 25 mm.",
-    "image1": "im31.jpg",
-    "image2": "im32.jpg",
-    "category": "hommes",
-    "color": "rouge sellier",
-    "origin": "France"
-  },
-  {
-    "id": "19",
-    "name": "Cravate Façonnée H",
-    "sizes": [
-      {
-        "size": "Taille Unique",
-        "quantity": 10
-      }
-    ],
-    "price": 245,
-    "description": "Cravate en twill 100 % soie, assemblée à la main. Une infinité de « H » se révèle à travers le jeu de tissage jacquard de cette cravate.",
-    "image1": "im33.jpg",
-    "image2": "im34.jpg",
-    "category": "hommes",
-    "color": "marine",
-    "origin": "France"
-  },
-  {
-    "id": "20",
-    "name": "Robe longue drapée motif « Mosaïque »",
-    "sizes": [
-      {
-        "size": "34",
-        "quantity": 5
-      },
-      {
-        "size": "36",
-        "quantity": 5
-      },
-      {
-        "size": "38",
-        "quantity": 5
-      }
-    ],
-    "price": 4400,
-    "description": "Une robe longue drapée en soie jacquard avec motif « Mosaïque » (100 % soie). Drapé diagonal sur le devant avec plis sur l'épaule. Fermeture épaule droite avec boutons cachés en nacre gravés Clou de Selle. Fermeture côté droit avec zip invisible. Fente côté gauche. Dos nu avec drapé diagonal. Doublure en soie quadrillée.",
-    "image1": "im35.jpg",
-    "image2": "im36.jpg",
-    "category": "femmes",
-    "color": "noir",
-    "origin": "France"
-  },
-  {
-    "id": "21",
-    "name": "Semainier de chaussettes bébé Cabriole",
-    "sizes": [
-      {
-        "size": "18",
-        "quantity": 5
-      },
-      {
-        "size": "21",
-        "quantity": 5
-      }
-    ],
-    "price": 210,
-    "description": "Semainier de chaussettes bébé en jersey imprimé. Composition : 67 % coton, 18 % polyamide, 12 % cachemire et 3 % élasthanne. Convient aux enfants âgés de 0 à 9 mois.",
-    "image1": "im37.jpg",
-    "image2": "im38.jpg",
-    "category": "enfants",
-    "color": "multicolore",
-    "origin": "France"
-  },
-  {
-    "id": "22",
-    "name": "Secrétaire Attelage Équipages d'Hermès",
-    "price": 39800,
-    "color": "Chêne naturel",
-    "description": "Secrétaire et petite table de travail en chêne naturel avec caisson gainé de taurillon H. Compartiment passe-câbles, deux casiers amovibles et deux tiroirs à poignées cuir. Modulable selon l'envie.",
-    "image1": "im41.jpg",
-    "image2": "im42.jpg",
-    "category": "maison",
-    "origin": "Italie",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "id": "24",
-    "name": "Plaid Avalon Néon",
-    "price": 8600,
-    "color": "Sable / Châtaigne",
-    "description": "Plaid tissé jacquard en cachemire brodé à la main de perles de verre rondes et fils de coton. 100 % cachemire, finition point à cheval. Tissé en Écosse.",
-    "image1": "im45.jpg",
-    "image2": "im46.jpg",
-    "category": "maison",
-    "origin": "Inde",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 3
-      }
-    ]
-  },
-  {
-    "id": "25",
-    "name": "Plateau rectangulaire Oseraie Color, moyen modèle",
-    "price": 2090,
-    "color": "Terre battue",
-    "description": "Plateau rectangulaire en osier avec liens de cuir de veau Swift tressés à la main, poignées en veau Swift, et plaque de verre insérée pour protéger l'osier.",
-    "image1": "im47.jpg",
-    "image2": "im48.jpg",
-    "category": "maison",
-    "origin": "France",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "name": "Table de jeux Atout d'Hermès",
-    "price": 8900,
-    "color": "chocolat",
-    "description": "Table de jeux en chêne naturel avec deux plateaux réversibles en marqueterie de cuir : recto uni, verso damier d'échecs, backgammon et dames. Compartiments de rangement en taurillon H avec pions, jetons, cartes, dés, gobelets. Dessiné par Studio Hermès.",
-    "image1": "im39.jpg",
-    "image2": "im40.jpg",
-    "category": "maison",
-    "origin": "France",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 2
-      }
-    ]
-  },
-  {
-    "id": "26",
-    "name": "Montre Cape Cod, Petit modèle, 31 mm",
-    "price": 2900,
-    "color": "Orange / Argenté",
-    "description": "Montre en acier avec mouvement quartz, cadran argenté opalin, bracelet long interchangeable en veau Swift orange.",
-    "image1": "im51.jpg",
-    "image2": "im52.jpg",
-    "category": "bijouterieetmontres",
-    "origin": "Suisse",
-    "sizes": [
-      {
-        "size": "31 mm",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "id": "27",
-    "name": "Montre Arceau Grande Lune, 43 mm",
-    "price": 0,
-    "color": "Bleu abysse / Argenté",
-    "description": "Montre en acier avec mouvement automatique et module Grande Lune, cadran bleu, bracelet long en alligator mat bleu abysse.",
-    "image1": "im53.jpg",
-    "image2": "im54.jpg",
-    "category": "bijouterieetmontres",
-    "origin": "Suisse",
-    "sizes": [
-      {
-        "size": "43 mm",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "id": "28",
-    "name": "Bavoir Épopée",
-    "price": 260,
-    "color": "Bleu ciel",
-    "description": "Bavoir en éponge brodée, 100 % coton avec broderie (96 % polyester, 4 % céramique), finition passepoil (100 % polyester), verso et liens en lin (100 % lin).",
-    "image1": "im55.jpg",
-    "image2": "im56.jpg",
-    "category": "enfants",
-    "origin": "France",
-    "sizes": [
-      {
-        "size": "Taille Unique",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "id": "29",
-    "name": "Chaussettes Cabriole gris perle",
-    "price": 120,
-    "color": "Gris perle",
-    "description": "Chaussettes en maille 100 % coton tricoté avec broderie (96 % polyester, 4 % céramique). Convient aux enfants âgés de 3 à 6 mois.",
-    "image1": "im57.jpg",
-    "image2": "im58.jpg",
-    "category": "enfants",
-    "origin": "Italie",
-    "sizes": [
-      {
-        "size": "6M",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "id": "30",
-    "name": "Robe prairie en gaze avec motif « Mosaïque »",
-    "price": 349.99,
-    "color": "Blanc",
-    "description": "Une robe prairie en gaze avec motif « Mosaïque »...",
-    "image1": "im5.jpg",
-    "image2": "im6.jpg",
-    "category": "femmes",
-    "sizes": [
-      {
-        "size": "S",
-        "quantity": 7
-      },
-      {
-        "size": "M",
-        "quantity": 9
-      },
-      {
-        "size": "L",
-        "quantity": 5
-      },
-      {
-        "size": "XL",
-        "quantity": 2
-      },
-      {
-        "size": "XXL",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "id": "1",
-    "name": "Robe de plage brodée",
-    "price": 299.99,
-    "color": "Blanc",
-    "description": "Une robe de plage brodée en popeline de coton unie...",
-    "image1": "im1.jpg",
-    "image2": "im2.jpg",
-    "category": "femmes",
-    "sizes": [
-      {
-        "size": "S",
-        "quantity": 5
-      },
-      {
-        "size": "M",
-        "quantity": 8
-      },
-      {
-        "size": "L",
-        "quantity": 3
-      },
-      {
-        "size": "XL",
-        "quantity": 1
-      },
-      {
-        "size": "XXL",
-        "quantity": 0
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "name": "Polo boutonné à manches courtes avec broderie H",
-    "price": 159,
-    "color": "Bleu marine",
-    "description": "Polo boutonné à manches courtes avec broderie H...",
-    "image1": "im11.jpg",
-    "image2": "im12.jpg",
-    "category": "hommes",
-    "sizes": [
-      {
-        "size": "S",
-        "quantity": 6
-      },
-      {
-        "size": "M",
-        "quantity": 10
-      },
-      {
-        "size": "L",
-        "quantity": 7
-      },
-      {
-        "size": "XL",
-        "quantity": 4
-      }
-    ]
-  },
-  {
-    "id": "3",
-    "name": "Montre en acier, mouvement extra-plat Hermès H1950",
-    "price": 7800,
-    "color": "Argenté",
-    "description": "Montre en acier, mouvement extra-plat...",
-    "image1": "im15.jpg",
-    "image2": "im16.jpg",
-    "category": "bijouterieetmontres",
-    "sizes": [
-      {
-        "size": "16-18,5 cm",
-        "quantity": 3
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "name": "Chaussons en seersucker",
-    "price": 65,
-    "color": "Blanc et bleu",
-    "description": "Chaussons en seersucker...",
-    "image1": "im19.jpg",
-    "image2": "im20.jpg",
-    "category": "enfants",
-    "sizes": [
-      {
-        "size": "19",
-        "quantity": 6
-      }
-    ]
-  },
-  {
-    "id": "6",
-    "name": "T-shirt cropped en jersey de coton uni",
-    "price": 79.99,
-    "color": "Blanc",
-    "description": "Un t-shirt cropped en jersey de coton uni...",
-    "image1": "im3.jpg",
-    "image2": "im4.jpg",
-    "category": "femmes",
-    "sizes": [
-      {
-        "size": "S",
-        "quantity": 6
-      },
-      {
-        "size": "M",
-        "quantity": 10
-      },
-      {
-        "size": "L",
-        "quantity": 4
-      },
-      {
-        "size": "XL",
-        "quantity": 2
-      },
-      {
-        "size": "XXL",
-        "quantity": 0
-      }
-    ]
-  },
-  {
-    "id": "7",
-    "name": "Assiette à dîner Bleus d'Ailleurs",
-    "price": 155,
-    "color": "Blanc et bleu",
-    "description": "Assiette à dîner en porcelaine avec décors imprimés par sérigraphie et posés à la main. La collection Bleus d'Ailleurs évoque un voyage onirique où les bleus profonds contrastent avec le blanc kaolin.",
-    "image1": "im49.jpg",
-    "image2": "im50.jpg",
-    "category": "maison",
-    "origin": "France",
-    "sizes": [
-      {
-        "size": "27 cm",
-        "quantity": 20
-      }
-    ]
-  },
-  {
-    "id": "9",
-    "name": "Jeu de 9 cubes en érable imprimé",
-    "price": 120,
-    "color": "Multicolore",
-    "description": "Jeu de 9 cubes en érable imprimé...",
-    "image1": "im17.jpg",
-    "image2": "im18.jpg",
-    "category": "enfants",
-    "sizes": [
-      {
-        "size": "Taille unique",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "id": "8",
-    "name": "Bracelet jonc en veau Epsom et métal",
-    "price": 450,
-    "color": "Or rose",
-    "description": "Bracelet jonc en veau Epsom et métal...",
-    "image1": "im7.jpg",
-    "image2": "im8.jpg",
-    "category": "bijouterieetmontres",
-    "sizes": [
-      {
-        "size": "T1",
-        "quantity": 4
-      },
-      {
-        "size": "T2",
-        "quantity": 6
-      },
-      {
-        "size": "T3",
-        "quantity": 2
-      }
-    ]
-  },
-  {
-    "id": "10",
-    "name": "Pantalon Saint Germain en serge de coton stretch",
-    "price": 299.99,
-    "color": "Beige",
-    "description": "Pantalon Saint Germain en serge de coton stretch...",
-    "image1": "im9.jpg",
-    "image2": "im10.jpg",
-    "category": "hommes",
-    "sizes": [
-      {
-        "size": "38",
-        "quantity": 5
-      },
-      {
-        "size": "40",
-        "quantity": 8
-      },
-      {
-        "size": "42",
-        "quantity": 3
-      },
-      {
-        "size": "44",
-        "quantity": 2
-      }
-    ]
-  },
-  {
-    "id": "16",
-    "name": "Mini-jupe à pli imprimé « Guépards et Palmettes »",
-    "sizes": [
-      {
-        "size": "34",
-        "quantity": 5
-      },
-      {
-        "size": "36",
-        "quantity": 5
-      },
-      {
-        "size": "38",
-        "quantity": 5
-      },
-      {
-        "size": "40",
-        "quantity": 5
-      }
-    ],
-    "price": 1900,
-    "description": "Une mini-jupe à pli en carré de soie imprimé « Guépards et Palmettes » (100 % soie). Ceinture élastiquée en satin au dos. Pli creux milieu devant.",
-    "image1": "im23.jpg",
-    "image2": "im24.jpg",
-    "category": "femmes",
-    "color": "blanc sel",
-    "origin": "France"
-  },
-  {
-    "name": "Robe chemise",
-    "price": 10,
-    "color": "rose",
-    "description": "",
-    "image1": "im21.jpg",
-    "image2": "im22.jpg",
-    "category": "femmes",
-    "origin": "italie",
-    "sizes": [
-      {
-        "size": "xl",
-        "quantity": 3
-      }
-    ],
-    "id": "1750461126016",
-    "createdAt": "2025-06-20T23:12:06.016Z"
-  }
+  "id": "1",
+  "name": "Lady D-Lite Small Dioriviera Rose Achillée",
+  "price": 4700,
+  "color": "Rose Achillée",
+  "origin": "Italie",
+  "description": "Sac brodé Toile de Jouy Sauvage rose Achillée, bandoulière amovible, charms dorés, issu de la capsule Dioriviera.",
+  "category": "sacs",
+  "sizes": [
+    { "size": "Taille Unique", "quantity": 5 }
+  ],
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/M0531OTDTM59I_E01?$default_GHC$&crop=407,495,1100,1279&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/M0531OTDTM59I_E08?$default_GHC$&crop=510,500,966,1308&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/M0531OTDTM59I_E06?$default_GHC$&crop=770,529,509,944&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85"
+  ],
+  "createdAt": "2025-06-21"
+},
+{
+  "id": "2001",
+  "name": "Sac Lady D-Lite Small Dioriviera",
+  "price": 4200,
+  "description": "Sac brodé du motif Toile de Jouy Palms bleu Céleste créé par Pietro Ruffo. Signature Christian Dior Paris à l'avant, charms D.I.O.R. en métal doré pâle, bandoulière brodée amovible. Peut se porter à la main ou en crossbody.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/M0531OEZGM65E_E01?$default_GHC$&crop=345,499,1144,1305&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_056_E10?$lookDefault_GH-GHC$&crop=568,0,1863,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/M0531OEZGM65E_E06?$default_GHC$&crop=725,445,621,1101&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85"  ],
+  "category": "sacs",
+  "color": "Bleu Céleste et Blanc",
+  "origin": "Italie",
+  "createdAt": "2025-06-21T12:00:00",
+  "sizes": [
+    { "size": "Taille Unique", "quantity": 3 }
+  ]
+},
+{
+  "id": "2002",
+  "name": "Sac Lady D-Lite Medium",
+  "price": 4800,
+  "description": "Sac brodé du motif Toile de Jouy Reverse bleue avec signature Christian Dior Paris et charms D.I.O.R. en métal doré pâle. Bandoulière brodée, réversible et amovible. Peut se porter à la main ou en crossbody.",
+  "images": [
+        "https://assets.christiandior.com/is/image/diorprod/M0565ORGOM928_E01?$default_GHC$&crop=285,377,1271,1411&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+
+    "https://assets.christiandior.com/is/image/diorprod/M0565ORGOM928_E08?$default_GHC$&crop=429,381,1142,1442&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/M0565ORGOM928_E06?$default_GHC$&crop=612,438,672,1124&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85"  ],
+  "category": "sacs",
+  "color": "Bleu",
+  "origin": "Italie",
+  "createdAt": "2025-06-21T13:00:00",
+  "sizes": [
+    { "size": "Taille Unique", "quantity": 2 }
+  ]
+}
+,
+{
+  "id": "3001",
+  "name": "Mule Dway Dioriviera",
+  "price": 850,
+  "description": "Mule brodée en coton rose bégonia avec motif Toile de Jouy Sauvage et signature Christian Dior Paris. Design épuré, facile à enfiler, parfait pour une tenue décontractée. Issue de la capsule Dioriviera.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/KCQ209TJES07P_E02?$default_GHC$&crop=267,1116,1491,389&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/KCQ209TJES07P_E06?$default_GHC$&crop=273,143,1346,1552&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/KCQ209TJES07P_E02?$default_GHC$&crop=267,1116,1491,389&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85"  ],
+  "category": "chaussures",
+  "color": "Rose Bégonia",
+  "origin": "Italie",
+  "createdAt": "2025-06-21T14:30:00",
+  "sizes": [
+    { "size": "36", "quantity": 5 },
+    { "size": "37", "quantity": 3 },
+    { "size": "38", "quantity": 2 },
+    { "size": "39", "quantity": 1 }
+  ]
+},
+{
+  "id": "3002",
+  "name": "Mule Dway Dioriviera",
+  "price": 890,
+  "description": "Mule en raphia couleur naturel et coton beige brodé de la signature Christian Dior Paris. Design épuré et facile à enfiler, idéale pour une tenue décontractée. Issue de la collection capsule Dioriviera.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/KCO394ECJS24T_E03-1?$default_GHC$&crop=364,1025,1273,523&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_354_E14-1?$lookDefault_GH-GHC$&crop=568,0,1863,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/KCO394ECJS24T_E02-1?$default_GHC$&crop=248,1109,1515,398&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85"  ],
+  "category": "chaussures",
+  "color": "Naturel et Beige",
+  "origin": "Italie",
+  "createdAt": "2025-06-21T15:00:00",
+  "sizes": [
+    { "size": "36", "quantity": 3 },
+    { "size": "37", "quantity": 2 },
+    { "size": "38", "quantity": 2 },
+    { "size": "39", "quantity": 1 }
+  ]
+}
+,
+{
+  "id": "1002",
+  "name": "Robe-chemise mi-longue Dioriviera",
+  "price": 2650,
+  "description": "Robe-chemise mi-longue en gabardine de coton beige, coupe évasée, fermeture boutonnée, plissé élégant et ceinture ton sur ton avec signature Christian Dior. Issue de la capsule Dioriviera.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_045_E01?$lookDefault_GH-GHC$&crop=568,0,1864,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_045_E03?$lookDefault_GH-GHC$&crop=568,0,1864,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_045_E04?$lookDefault_GH-GHC$&crop=571,0,1853,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"  ],
+  "category": "robes",
+  "color": "Beige",
+  "origin": "France",
+  "createdAt": "2025-06-21T16:00:00",
+  "sizes": [
+    { "size": "S", "quantity": 3 },
+    { "size": "M", "quantity": 3 },
+    { "size": "L", "quantity": 2 }
+  ]
+},
+{
+  "id": "1003",
+  "name": "Robe-chemise mi-longue Dioriviera en coton et soie",
+  "price": 2890,
+  "description": "Robe mi-longue en popeline de coton et soie blancs, silhouette évasée, col sans revers inspiré des archives, ceinture ton sur ton à la taille, mancherons pour une touche féminine.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/547D83A3124X0200_E01?$default_GHC$&crop=633,148,735,1572&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/547D83A3124X0200_E08?$default_GHC$&crop=632,150,736,1571&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85"
+  ],
+  "category": "robes",
+  "color": "Blanc",
+  "origin": "France",
+  "createdAt": "2025-06-21T16:10:00",
+  "sizes": [
+    { "size": "S", "quantity": 4 },
+    { "size": "M", "quantity": 3 },
+    { "size": "L", "quantity": 2 }
+  ]
+},
+{
+  "id": "1004",
+  "name": "Robe-chemise mi-longue Toile de Jouy rose",
+  "price": 3100,
+  "description": "Robe-chemise mi-longue en mousseline de coton avec motif Toile de Jouy Sauvage rose fleur de cerisier. Silhouette fluide, col chemise, poches latérales et fronces à la taille.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/441R81A3877X0843_E01?$default_GHC$&crop=682,150,637,1573&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_022_E01?$lookDefault_GH-GHC$&crop=568,0,1864,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_022_E03?$lookDefault_GH-GHC$&crop=568,0,1864,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"  ],
+  "category": "robes",
+  "color": "Rose et Blanc",
+  "origin": "France",
+  "createdAt": "2025-06-21T16:20:00",
+  "sizes": [
+    { "size": "S", "quantity": 5 },
+    { "size": "M", "quantity": 3 },
+    { "size": "L", "quantity": 2 }
+  ]
+},
+{
+  "id": "1005",
+  "name": "Robe-chemise mi-longue Toile de Jouy Palms",
+  "price": 3250,
+  "description": "Robe-chemise mi-longue en mousseline de coton blanc et bleu, imprimée du motif Toile de Jouy Palms par Pietro Ruffo. Coupe évasée, manches courtes, fermeture boutonnée.",
+  "images": [
+        "https://assets.christiandior.com/is/image/diorprod/541R81A3A92X0860_E01?$default_GHC$&crop=685,150,630,1571&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_029_E01-1?$lookDefault_GH-GHC$&crop=568,0,1862,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_3_LOOK_029_E03-1?$lookDefault_GH-GHC$&crop=568,0,1864,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"
+  ],
+  "category": "robes",
+  "color": "Blanc et Bleu",
+  "origin": "France",
+  "createdAt": "2025-06-21T16:40:00",
+  "sizes": [
+    { "size": "S", "quantity": 4 },
+    { "size": "M", "quantity": 2 },
+    { "size": "L", "quantity": 1 }
+  ]
+},
+{
+  "id": "1006",
+  "name": "Bracelet Dior Cabinet d'Été Candy Pink",
+  "price": 420,
+  "description": "Bracelet tressé en tissu Candy Pink avec perle en résine blanche, charms dorés ciselés et signature CD. Finition métal doré, inspiré de l’univers marin de la collection Dioriviera.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/B2946WOMPOD72P_E01?$default_GHC$&crop=163,312,1688,1114&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/B2946WOMPOD72P_E09?$bottom_GH_GHC$&crop=0,0,2000,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"
+  ],
+  "category": "bijoux",
+  "color": "Rose Candy",
+  "origin": "France",
+  "createdAt": "2025-06-21T17:00:00",
+  "sizes": [
+    { "size": "Taille Unique", "quantity": 10 }
+  ]
+},
+{
+  "id": "1007",
+  "name": "Bracelet double Petit CD",
+  "price": 390,
+  "description": "Bracelet double en métal finition dorée avec signature CD et étoile incrustée de cristaux blancs. Élégant et intemporel, il complète la ligne Petit CD.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/B1133PMTCYD301_E01-1?$default_GHC$&crop=427,322,1126,1263&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_1_LOOK_676_E10?$lookDefault_GH-GHC$&crop=571,0,1861,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/B1133PMTCYD301_E09-1?$bottom_GH_GHC$&crop=0,0,1988,1984&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"  ],
+  "category": "bijoux",
+  "color": "Doré",
+  "origin": "France",
+  "createdAt": "2025-06-21T17:15:00",
+  "sizes": [
+    { "size": "Taille Unique", "quantity": 8 }
+  ]
+},
+{
+  "id": "1008",
+  "name": "Bracelet Petit CD",
+  "price": 290,
+  "description": "Bracelet doré moderne et féminin avec maillons CD alternant métal finition dorée et laque rose pâle. À associer avec d'autres pièces de la ligne Petit CD.",
+  "images": [
+    "https://assets.christiandior.com/is/image/diorprod/B2485WOMLQD97P_E01?$default_GHC$&crop=320,344,1387,1243&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "https://assets.christiandior.com/is/image/diorprod/B2485WOMLQD97P_E09?$bottom_GH_GHC$&crop=0,0,2000,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"
+  ],
+  "category": "bijoux",
+  "color": "Doré & Rose pâle",
+  "origin": "France",
+  "createdAt": "2025-06-21T17:25:00",
+  "sizes": [
+    { "size": "Taille Unique", "quantity": 10 }
+  ]
+}
+
+
+
+
+
+
+
 ]
