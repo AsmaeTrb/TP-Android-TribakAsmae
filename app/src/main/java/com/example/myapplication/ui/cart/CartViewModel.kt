@@ -1,10 +1,11 @@
 package com.example.myapplication.ui.cart
-
-import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.Entities.CartItem
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.example.myapplication.data.Entities.Product
+import kotlin.collections.filter
+
 class CartViewModel : ViewModel() {
 
     private val _state = MutableStateFlow(CartViewState())

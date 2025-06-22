@@ -1,5 +1,5 @@
 package com.example.myapplication.ui.cart
-
+import com.example.myapplication.data.Entities.CartItem
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items

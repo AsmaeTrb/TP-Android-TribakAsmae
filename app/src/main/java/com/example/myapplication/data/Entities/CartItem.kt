@@ -1,5 +1,5 @@
-package com.example.myapplication.data.Entities
 
+package com.example.myapplication.data.Entities
 
 data class CartItem(
     val product: Product,
