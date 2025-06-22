@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326962723974",
+    "project_id": "trismaeapp",
+    "storage_bucket": "trismaeapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326962723974:android:eb801d4e4f79078eb22507",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg7qYV8PzWgtnE6XTJJfkmdqpAqea1yTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ package com.example.myapplication.data.DI
 
 
 import com.example.myapplication.data.Api.ProductApi
+import com.example.myapplication.data.Api.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
-    fun provideBaseUrl(): String = "https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/master/app/public/products-api/"
+    fun provideBaseUrl(): String = "http://192.168.87.107:3000/"
 
     @Provides
     @Singleton
@@ -38,4 +39,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideProductApi(retrofit: Retrofit): ProductApi = retrofit.create(ProductApi::class.java)
+    @Provides
+    @Singleton
+    fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
 }

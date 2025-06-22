@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("com.google.dagger.hilt.android")
             id("com.google.devtools.ksp")
+    id("com.google.gms.google-services")
      }
 
 android {
@@ -66,4 +67,5 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation(libs.navigation.compose)
     implementation(libs.coil.compose)
+    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
 }
