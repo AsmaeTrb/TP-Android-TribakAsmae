@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.cart
 
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.Entities.CartItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.example.myapplication.data.Entities.Product
