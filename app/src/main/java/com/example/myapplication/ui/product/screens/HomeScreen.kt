@@ -3,6 +3,7 @@ package com.example.myapplication.ui.product.screens
 import ProductsComponent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -18,6 +19,7 @@ import com.example.myapplication.ui.product.ProductViewModel
 @Composable
 fun HomeScreen(
     onNavigateToDetails: (String) -> Unit,
+    onCartClick: () -> Unit,
     viewModel: ProductViewModel = viewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -32,24 +34,40 @@ fun HomeScreen(
             .background(Color(0xFFF2E6D8))
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
-    ){
+    ) {
+        // Bouton Panier en haut
+        Button(
+            onClick = onCartClick,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Panier")
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
         Text("Liste des produits", fontSize = 20.sp)
 
         when {
             state.isLoading -> {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                }
             }
 
             state.error != null -> {
                 Text(
                     text = "Erreur : ${state.error}",
                     color = Color.Red,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                    modifier = Modifier.fillMaxWidth(),
+                    fontSize = 16.sp
                 )
             }
 
             else -> {
-                ProductsComponent(products = state.products, onNavigateToDetails = onNavigateToDetails)
+                ProductsComponent(
+                    products = state.products,
+                    onNavigateToDetails = onNavigateToDetails
+                )
             }
         }
     }

@@ -16,7 +16,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
-    fun provideBaseUrl(): String = "https://api.example.com/"
+    fun provideBaseUrl(): String = "https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/master/app/public/products-api/"
 
     @Provides
     @Singleton

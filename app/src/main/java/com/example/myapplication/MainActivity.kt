@@ -32,6 +32,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     MyApplicationTheme {
-        com.example.myapplication.ui.product.screens.HomeScreen(onNavigateToDetails = {})
+        com.example.myapplication.ui.product.screens.HomeScreen(onNavigateToDetails = {},  onCartClick = {})
     }
 }
