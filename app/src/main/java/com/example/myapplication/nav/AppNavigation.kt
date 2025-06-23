@@ -1,7 +1,10 @@
 package com.example.myapplication.nav
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
@@ -34,7 +37,16 @@ fun AppNavigation(
         productViewModel.handleIntent(ProductIntent.LoadProducts)
     }
 
-    NavHost(navController = navController, startDestination = Routes.Home) {
+    Scaffold(
+        bottomBar = {
+            BottomNavigationBar(navController)
+        }
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = Routes.Home,
+            modifier = Modifier.padding(innerPadding)
+        )  {
 
         // 🏠 Home
         composable(Routes.Home) {
@@ -105,4 +117,4 @@ fun AppNavigation(
             )
         }
     }
-}
+} }
