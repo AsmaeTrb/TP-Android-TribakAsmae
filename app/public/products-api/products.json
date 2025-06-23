@@ -211,7 +211,7 @@
   "price": 290,
   "description": "Bracelet doré moderne et féminin avec maillons CD alternant métal finition dorée et laque rose pâle. À associer avec d'autres pièces de la ligne Petit CD.",
   "images": [
-    "https://assets.christiandior.com/is/image/diorprod/B2485WOMLQD97P_E01?$default_GHC$&crop=320,344,1387,1243&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85",
+    "./hello.png",
     "https://assets.christiandior.com/is/image/diorprod/B2485WOMLQD97P_E09?$bottom_GH_GHC$&crop=0,0,2000,2000&wid=1850&hei=2000&scale=1&bfc=on&qlt=85"
   ],
   "category": "bijoux",

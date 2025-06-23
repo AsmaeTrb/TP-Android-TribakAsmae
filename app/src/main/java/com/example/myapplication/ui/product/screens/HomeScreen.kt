@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
 import com.example.myapplication.ui.product.ProductIntent
 import com.example.myapplication.ui.product.ProductViewModel
 
@@ -32,34 +33,13 @@ fun HomeScreen(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF2E6D8))
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Button(onClick = onCartClick) {
-                Text("Panier")
-            }
-            Button(onClick = onLoginClick) {
-                Text("Connexion")
-            }
-            Button(onClick = onRegisterClick) {
-                Text("Créer un compte")
-            }
-        }
+            .fillMaxSize()) {
 
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Text("Liste des produits", fontSize = 20.sp)
-
+        // 🛍️ LISTE DES PRODUITS
         when {
             state.isLoading -> {
-                Box(modifier = Modifier.fillMaxWidth()) {
-                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
                 }
             }
 
@@ -67,8 +47,7 @@ fun HomeScreen(
                 Text(
                     text = "Erreur : ${state.error}",
                     color = Color.Red,
-                    modifier = Modifier.fillMaxWidth(),
-                    fontSize = 16.sp
+                    modifier = Modifier.padding(16.dp)
                 )
             }
 
