@@ -20,6 +20,8 @@ import com.example.myapplication.ui.product.ProductViewModel
 fun HomeScreen(
     onNavigateToDetails: (String) -> Unit,
     onCartClick: () -> Unit,
+    onLoginClick: () -> Unit,
+    onRegisterClick: () -> Unit,
     viewModel: ProductViewModel = viewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -35,12 +37,19 @@ fun HomeScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        // Bouton Panier en haut
-        Button(
-            onClick = onCartClick,
-            modifier = Modifier.fillMaxWidth()
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text("Panier")
+            Button(onClick = onCartClick) {
+                Text("Panier")
+            }
+            Button(onClick = onLoginClick) {
+                Text("Connexion")
+            }
+            Button(onClick = onRegisterClick) {
+                Text("Créer un compte")
+            }
         }
 
         Spacer(modifier = Modifier.height(12.dp))
