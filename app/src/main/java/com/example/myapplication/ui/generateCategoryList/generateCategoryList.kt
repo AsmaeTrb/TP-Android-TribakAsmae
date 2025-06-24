@@ -5,14 +5,17 @@ import com.example.myapplication.data.Entities.Product
 fun generateCategoryList(products: List<Product>): List<Pair<String, String>> {
     val mainCategories = listOf(
         "bags",
+        "glasses",
+        "jewelry",
         "jackets",
         "dresses",
-        "COSTUME JEWELRY",
-        "SMALL LEATHER GOODS"
+        "shoes"
     )
 
+    // 🔁 Construire la liste avec une image personnalisée pour chaque catégorie
     return mainCategories.map { category ->
-        val firstProduct = products.firstOrNull { it.category == category }
-        category to (firstProduct?.images?.firstOrNull() ?: "https://default-image.com/placeholder.jpg")
+        val imageUrl = "http://192.168.87.107:3000/assets/${category.lowercase()}.png"
+
+        category to imageUrl
     }
 }

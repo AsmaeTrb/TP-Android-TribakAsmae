@@ -29,6 +29,7 @@ import com.example.myapplication.ui.generateCategoryList.generateCategoryList
 
 object Routes {
     const val Home = "home"
+    const val Profile = "profile"
     const val ProductDetails = "productDetails"
     const val Cart = "cart"
     const val Login = "login"
