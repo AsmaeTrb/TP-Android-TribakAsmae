@@ -8,9 +8,9 @@ sealed class BottomNavItem(
     val iconRes: Int
 ) {
     object Home : BottomNavItem("home", "HOME", R.drawable.home)
-    object Products : BottomNavItem("products", "PRODUCTS", R.drawable.category)
     object Wishlist : BottomNavItem("wishlist", "WISHLIST", R.drawable.stars)
     object Profile : BottomNavItem("profile", "PROFILE", R.drawable.account)
+    object Products : BottomNavItem("categories", "PRODUCTS", R.drawable.category)
 
     companion object {
         val items = listOf(Home, Products, Wishlist, Profile)

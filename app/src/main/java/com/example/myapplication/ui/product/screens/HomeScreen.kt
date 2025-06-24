@@ -1,9 +1,6 @@
 package com.example.myapplication.ui.product.screens
 
-import ProductsComponent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -16,6 +13,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.myapplication.ui.product.ProductIntent
 import com.example.myapplication.ui.product.ProductViewModel
+import com.example.myapplication.ui.product.component.ProductsComponent
 
 @Composable
 fun HomeScreen(

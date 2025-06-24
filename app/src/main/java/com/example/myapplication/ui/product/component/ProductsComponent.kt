@@ -1,3 +1,5 @@
+package com.example.myapplication.ui.product.component
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
@@ -9,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.Entities.Product
-import com.example.myapplication.ui.product.component.ProductItemComponent
 
 @Composable
 fun ProductsComponent(

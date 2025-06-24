@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
     id("com.google.dagger.hilt.android")
             id("com.google.devtools.ksp")
-    id("com.google.gms.google-services")
-     }
+    alias(libs.plugins.kotlin.compose)
+
+}
 
 android {
     namespace = "com.example.myapplication"
@@ -68,4 +68,7 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.coil.compose)
     implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
+
 }

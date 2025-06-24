@@ -225,7 +225,421 @@
 
 
 
+[
+    {
+    "id": "1",
+    "name": "Robe Longue Chanel en Tweed Rose Pâle à Volants",
+    "price": 6700.00,
+    "description": "Robe longue ajustée en tweed rose pâle avec col montant et volants aux poignets, à la taille et à l'ourlet. Une silhouette élégante et raffinée, parfaite pour les soirées de prestige.",
+    "images": [
+      "http://192.168.87.107:3000/assets/dress1.png",
+      "http://192.168.87.107:3000/assets/dress2.png"
+    ],
+    "category": "dresses",
+    "color": "rose pâle",
+    "origin": "France",
+    "createdAt": "2025-06-23T19:30:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Veste Chanel en Tweed Multicolore à Fils Métalliques",
+    "price": 4800.00,
+    "description": "Veste courte en tweed multicolore agrémentée de fils métalliques. Détail raffiné sur les boutons et finitions brossées. Une pièce iconique à la silhouette structurée.",
+    "images": [
+      "http://192.168.87.107:3000/assets/jacket1.png",
+      "http://192.168.87.107:3000/assets/jacket2.png"
+    ],
+    "category": "jackets",
+    "color": "multicolore",
+    "origin": "France",
+    "createdAt": "2025-06-23T18:30:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 4
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Cardigan Multicolore en Maille Pastel Chanel",
+    "price": 1500.00,
+    "description": "Cardigan oversize en maille douce aux tons pastel (rose, bleu ciel, pêche et vert). Fermeture à boutons nacrés, coupe décontractée. Idéal pour un look printanier élégant.",
+    "images": [
+      "http://192.168.87.107:3000/assets/cardigan1.png",
+      "http://192.168.87.107:3000/assets/cardigan2.png"
+    ],
+    "category": "cardigan",
+    "color": "multicolore pastel",
+    "origin": "France",
+    "createdAt": "2025-06-23T20:20:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 2
+      },
+      {
+        "size": "40",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Veste Brodée Chanel avec Ceinture Contrastée",
+    "price": 5300.00,
+    "description": "Veste en tweed marine brodée de motifs floraux ivoire, avec détails contrastés blancs et ceinture chaîne. Une pièce élégante et artistique de la collection Chanel.",
+    "images": [
+      "http://192.168.87.107:3000/assets/jacket3.png",
+      "http://192.168.87.107:3000/assets/jacket4.png"
+    ],
+    "category": "jackets",
+    "color": "marine et ivoire",
+    "origin": "France",
+    "createdAt": "2025-06-23T18:45:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  }, {
+    "id": "5",
+    "name": "Lunettes de Soleil Ovales Noires Chanel",
+    "price": 720.00,
+    "description": "Lunettes de soleil à monture ovale noire avec branches fines et verres foncés. Un design intemporel et sophistiqué qui complète parfaitement les looks élégants ou décontractés.",
+    "images": [
+      "http://192.168.87.107:3000/assets/glasses1.png",
+      "http://192.168.87.107:3000/assets/glasses2.png"
+    ],
+    "category": "glasses",
+    "color": "noir",
+    "origin": "Italie",
+    "createdAt": "2025-06-23T21:30:00Z",
+    "sizes": [
+      {
+        "size": "Taille Unique",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Sac Classique en Tweed Rose Chanel",
+    "price": 5300.00,
+    "description": "Sac à rabat en tweed rose multicolore avec chaîne entrelacée en cuir rose et métal doré. Fermeture emblématique à double C. Une pièce iconique et féminine signée Chanel.",
+    "images": [
+      "http://192.168.87.107:3000/assets/bag1.png",
+      "http://192.168.87.107:3000/assets/bag2.png"
+    ],
+    "category": "bags",
+    "color": "rose multicolore",
+    "origin": "France",
+    "createdAt": "2025-06-23T21:10:00Z",
+    "sizes": [
+      {
+        "size": "Taille Unique",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Veste Chanel Blanche en Tweed Structuré",
+    "price": 5100.00,
+    "description": "Veste courte en tweed blanc ivoire à boutons bijoux dorés. Silhouette élégante et ajustée, portée sur une base transparente brodée. Une pièce emblématique de la collection Chanel.",
+    "images": [
+      "http://192.168.87.107:3000/assets/jacket5.png",
+      "http://192.168.87.107:3000/assets/jacket6.png"
+    ],
+    "category": "jackets",
+    "color": "blanc ivoire",
+    "origin": "France",
+    "createdAt": "2025-06-23T19:00:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Robe Noire à Volants avec Détails Dorés Chanel",
+    "price": 6300.00,
+    "description": "Robe noire fluide à manches longues avec décolleté en V et volants superposés soulignés de fils dorés. Une silhouette romantique et moderne sublimée par des détails raffinés.",
+    "images": [
+      "http://192.168.87.107:3000/assets/dress3.png",
+      "http://192.168.87.107:3000/assets/dress4.png"
+    ],
+    "category": "dresses",
+    "color": "noir et doré",
+    "origin": "France",
+    "createdAt": "2025-06-23T19:40:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 4
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Veste Chanel en Cuir Marron avec Col Shearling",
+    "price": 5900.00,
+    "description": "Veste courte en cuir marron chocolat avec col en shearling assorti. Poches à rabat et détails de boutons dorés emblématiques. Une pièce luxueuse au style affirmé.",
+    "images": [
+      "http://192.168.87.107:3000/assets/jacket7.png",
+      "http://192.168.87.107:3000/assets/jacket8.png"
+    ],
+    "category": "jackets",
+    "color": "marron chocolat",
+    "origin": "France",
+    "createdAt": "2025-06-23T19:10:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 2
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  },
+    {
+    "id": "15",
+    "name": "Sac Seau Chanel en Tweed Blanc avec Chaîne Dorée",
+    "price": 4200.00,
+    "description": "Sac seau en tweed blanc avec des touches de vert et rose, orné d'une chaîne dorée entrelacée et du logo Chanel emblématique. Élégant et sophistiqué, parfait pour une allure parisienne chic.",
+    "images": [
+      "http://192.168.87.107:3000/assets/bag3.png",
+      "http://192.168.87.107:3000/assets/bag4.png"
+    ],
+    "category": "bags",
+    "color": "blanc multicolore",
+    "origin": "France",
+    "createdAt": "2025-06-23T20:50:00Z",
+    "sizes": [
+      {
+        "size": "Taille Unique",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Veste Chanel Brodée en Tweed Noir et Blanc",
+    "price": 7200.00,
+    "description": "Veste structurée en tweed noir et blanc, ornée de broderies géométriques dorées et argentées. Un hommage à l'art et à la haute couture, emblématique de l'élégance Chanel.",
+    "images": [
+      "http://192.168.87.107:3000/assets/jacket9.png",
+      "http://192.168.87.107:3000/assets/jacket10.png"
+    ],
+    "category": "jackets",
+    "color": "noir, blanc, doré",
+    "origin": "France",
+    "createdAt": "2025-06-23T19:20:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  }, {
+    "id": "10",
+    "name": "Robe Pull Noire en Maille Sans Manches Chanel",
+    "price": 4600.00,
+    "description": "Robe courte en maille noire sans manches avec col en V, associée à une veste assortie oversize à poches. Un look sobre et affirmé, à la fois moderne et confortable.",
+    "images": [
+      "http://192.168.87.107:3000/assets/dress7.png",
+      "http://192.168.87.107:3000/assets/dress8.png"
+    ],
+    "category": "dresses",
+    "color": "noir",
+    "origin": "France",
+    "createdAt": "2025-06-23T20:00:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 2
+      },
+      {
+        "size": "40",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Robe Longue Fleurie Chanel Ceinturée",
+    "price": 5400.00,
+    "description": "Robe longue fluide à manches longues avec imprimé floral dans les tons roses et pourpres. Col en V, poches à rabat et ceinture chaîne pour souligner la taille avec élégance.",
+    "images": [
+      "http://192.168.87.107:3000/assets/dress9.png",
+      "http://192.168.87.107:3000/assets/dress10.png"
+    ],
+    "category": "dresses",
+    "color": "rose et pourpre",
+    "origin": "France",
+    "createdAt": "2025-06-23T20:10:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 3
+      },
+      {
+        "size": "36",
+        "quantity": 2
+      },
+      {
+        "size": "38",
+        "quantity": 2
+      },
+      {
+        "size": "40",
+        "quantity": 1
+      }
+    ]
+  },
+    {
+    "id": "9",
+    "name": "Robe Longue en Satin Noir avec Empiècement Brodé",
+    "price": 6900.00,
+    "description": "Robe en satin noir à manches trois-quarts avec une pièce centrale brodée multicolore, combinant textures et reflets. Fermeture boutonnée sur le devant pour une élégance moderne.",
+    "images": [
+      "http://192.168.87.107:3000/assets/dress5.png",
+      "http://192.168.87.107:3000/assets/dress6.png"
+    ],
+    "category": "dresses",
+    "color": "noir avec broderies multicolores",
+    "origin": "France",
+    "createdAt": "2025-06-23T19:50:00Z",
+    "sizes": [
+      {
+        "size": "34",
+        "quantity": 2
+      },
+      {
+        "size": "36",
+        "quantity": 3
+      },
+      {
+        "size": "38",
+        "quantity": 1
+      },
+      {
+        "size": "40",
+        "quantity": 0
+      }
+    ]
+  }
 
+
+
+]
 
 
 
