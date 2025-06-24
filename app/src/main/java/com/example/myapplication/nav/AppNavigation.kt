@@ -134,50 +134,6 @@ fun AppNavigation(
                 )
             }
 
-            composable("categories") {
-                val categories = generateCategoryList(productState.products)
-                Column(modifier = Modifier.fillMaxSize()) {
-                    Text(
-                        "PRODUCTS",
-                        style = MaterialTheme.typography.headlineLarge,
-                        modifier = Modifier.padding(16.dp)
-                    )
-
-                    LazyColumn(modifier = Modifier.fillMaxWidth()) {
-                        items(categories) { (category, imageUrl) ->
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(200.dp)
-                                    .clickable {
-                                        navController.navigate("${Routes.ProductsByCategory}/$category")
-                                    }
-                            ) {
-                                AsyncImage(
-                                    model = imageUrl,
-                                    contentDescription = category,
-                                    modifier = Modifier.fillMaxSize(),
-                                    contentScale = ContentScale.Crop
-                                )
-                                Box(
-                                    Modifier
-                                        .fillMaxSize()
-                                        .background(Color.Black.copy(alpha = 0.3f))
-                                )
-                                Text(
-                                    text = category.replaceFirstChar { it.uppercase() },
-                                    modifier = Modifier
-                                        .align(Alignment.BottomStart)
-                                        .padding(16.dp),
-                                    color = Color.White,
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
-                            }
-                        }
-                    }
-                }
-            }
 
             composable(
                 route = "${Routes.ProductsByCategory}/{category}",

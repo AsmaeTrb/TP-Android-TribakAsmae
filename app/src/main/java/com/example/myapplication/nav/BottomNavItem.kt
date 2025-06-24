@@ -10,7 +10,7 @@ sealed class BottomNavItem(
     object Home : BottomNavItem("home", "HOME", R.drawable.home)
     object Wishlist : BottomNavItem("wishlist", "WISHLIST", R.drawable.stars)
     object Profile : BottomNavItem("profile", "PROFILE", R.drawable.account)
-    object Products : BottomNavItem("categories", "PRODUCTS", R.drawable.category)
+    object Products : BottomNavItem("catalogue", "PRODUCTS", R.drawable.category)
 
     companion object {
         val items = listOf(Home, Products, Wishlist, Profile)

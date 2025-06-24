@@ -5,7 +5,7 @@ import com.example.myapplication.data.Entities.Product
 fun generateCategoryList(products: List<Product>): List<Pair<String, String>> {
     val mainCategories = listOf(
         "bags",
-        "jakects",
+        "jackets",
         "dresses",
         "COSTUME JEWELRY",
         "SMALL LEATHER GOODS"
