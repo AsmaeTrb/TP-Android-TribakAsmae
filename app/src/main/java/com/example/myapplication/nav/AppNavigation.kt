@@ -1,9 +1,13 @@
 package com.example.myapplication.nav
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -24,6 +28,7 @@ object Routes {
     const val Catalogue = "catalogue"
     const val ProductsByCategory = "products"
     const val AuthWelcome = "authWelcome"
+    const val Splash = "splash"
 }
 
 @Composable
@@ -57,7 +62,7 @@ fun AppNavigation(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = Routes.Home,
+            startDestination = Routes.Splash,
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Routes.Home) {
@@ -70,6 +75,9 @@ fun AppNavigation(
                         }
                     },
                 )
+            }
+            composable(Routes.Splash) {
+                SplashScreen(navController)
             }
 
             composable(
@@ -95,10 +103,13 @@ fun AppNavigation(
                 CartTabsScreen(
                     cartViewModel = cartViewModel,
                     authViewModel = authViewModel,
-                    onNavigateToAuth = { navController.navigate(Routes.Login) }
+                    onNavigateToAuth = { navController.navigate(Routes.Login) },
+                    onNavigateToPayment = {
+                        // Exemple : redirige vers une future page de paiement
+                        navController.navigate("payment") // à adapter selon ton routing
+                    }
                 )
             }
-
 
             composable(Routes.Profile) {
                 if (isLoggedIn && currentUser != null) {
@@ -153,7 +164,11 @@ fun AppNavigation(
                     }
                 )
             }
-
+            composable("payment") {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text("Page de paiement à venir", style = MaterialTheme.typography.headlineMedium)
+                }
+            }
             composable(Routes.Catalogue) {
                 CatalogueScreen(
                     products = productState.products,

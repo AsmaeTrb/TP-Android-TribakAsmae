@@ -21,77 +21,43 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.myapplication.data.Entities.Product
-
 @Composable
 fun ProductItemComponent(
     product: Product,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    onClick: () -> Unit
 ) {
-    val transition = rememberInfiniteTransition(label = "")
-    val scale by transition.animateFloat(
-        initialValue = 1f,
-        targetValue = 1.1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 8000, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = ""
-    )
-
-    Surface(
-        shape = RoundedCornerShape(4.dp),
-        tonalElevation = 4.dp,
-        modifier = modifier
+    Box(
+        modifier = Modifier
             .fillMaxWidth()
-            .aspectRatio(0.7f)
+            .aspectRatio(0.75f) // ✅ image plus grande
             .clickable { onClick() }
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            AsyncImage(
-                model = product.images.firstOrNull(),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .scale(scale),
-                contentScale = ContentScale.Crop
-            )
+        AsyncImage(
+            model = product.images.firstOrNull(),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
 
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(
-                                Color.Transparent,
-                                Color.Black.copy(alpha = 0.3f)
-                            ),
-                            startY = 0.5f
-                        )
+        // ✅ dégradé en bas
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+                .background(
+                    Brush.verticalGradient(
+                        listOf(Color.Transparent, Color.Black.copy(alpha = 0.6f))
                     )
+                )
+                .padding(8.dp)
+        ) {
+            Text(
+                text = product.name.uppercase(),
+                color = Color.White,
+                fontSize = 13.sp,
+                fontWeight = FontWeight.Medium,
+                maxLines = 2
             )
-
-            Column(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                product.name.split(" ").chunked(2).forEach { lineParts ->
-                    Text(
-                        text = lineParts.joinToString(" ").uppercase(),
-                        color = Color.White,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Light,
-                        fontFamily = FontFamily.Serif,
-                        letterSpacing = 1.sp,
-                        lineHeight = 16.sp,
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
         }
     }
 }
-

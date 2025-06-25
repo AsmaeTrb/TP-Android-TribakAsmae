@@ -22,7 +22,8 @@ import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 fun CartTabsScreen(
     cartViewModel: CartViewModel,
     authViewModel: AuthViewModel,
-    onNavigateToAuth: () -> Unit
+    onNavigateToAuth: () -> Unit,
+    onNavigateToPayment: () -> Unit
 ) {
     var selectedTab by remember { mutableStateOf(0) }
     val cartState by cartViewModel.state.collectAsState()
@@ -79,7 +80,12 @@ fun CartTabsScreen(
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
             when (selectedTab) {
-                0 -> CartScreen(cartViewModel) // ✅ tu réutilises directement CartScreen
+                0 -> CartScreen(
+                    cartViewModel = cartViewModel,
+                    onNavigateToAuth = onNavigateToAuth,
+                    authViewModel = authViewModel,
+                    onNavigateToPayment = onNavigateToPayment
+                )
                 1 -> {
                     if (isLoggedIn) {
                         Box(

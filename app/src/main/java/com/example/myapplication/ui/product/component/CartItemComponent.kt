@@ -1,5 +1,7 @@
 package com.example.myapplication.ui.product.component
+
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -9,11 +11,11 @@ import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.font.FontWeight
 import coil.compose.AsyncImage
 import com.example.myapplication.data.Entities.CartItem
 
@@ -41,14 +43,28 @@ fun CartItemComponent(
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Image du produit
-            AsyncImage(
-                model = cartItem.product.images.firstOrNull(),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(RoundedCornerShape(8.dp))
-            )
+            // Image du produit (avec fallback si vide)
+            val imageUrl = cartItem.product.images.firstOrNull()
+
+            if (!imageUrl.isNullOrBlank()) {
+                AsyncImage(
+                    model = imageUrl,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(Color.LightGray),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("—", color = Color.DarkGray)
+                }
+            }
 
             // Détails du produit
             Column(
@@ -87,7 +103,6 @@ fun CartItemComponent(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Bouton +
                 IconButton(
                     onClick = onAdd,
                     modifier = Modifier.size(36.dp),
@@ -100,13 +115,11 @@ fun CartItemComponent(
                     )
                 }
 
-                // Quantité
                 Text(
                     text = cartItem.quantity.toString(),
                     style = MaterialTheme.typography.bodyLarge
                 )
 
-                // Bouton -
                 IconButton(
                     onClick = onRemove,
                     modifier = Modifier.size(36.dp),
@@ -119,7 +132,6 @@ fun CartItemComponent(
                     )
                 }
 
-                // Bouton Supprimer
                 IconButton(
                     onClick = onDelete,
                     modifier = Modifier.size(36.dp)

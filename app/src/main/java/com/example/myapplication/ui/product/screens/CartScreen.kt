@@ -1,32 +1,39 @@
 package com.example.myapplication.ui.cart
+
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.myapplication.ui.product.AuthViewModel
 import com.example.myapplication.ui.product.component.CartItemComponent
 
-
-
-import androidx.compose.runtime.Composable
-
-import androidx.compose.ui.platform.LocalContext
-import android.widget.Toast
-
-
 @Composable
-fun CartScreen(cartViewModel: CartViewModel) {
+fun CartScreen(
+    cartViewModel: CartViewModel,
+    authViewModel: AuthViewModel,
+    onNavigateToAuth: () -> Unit,
+    onNavigateToPayment: () -> Unit
+) {
     val state by cartViewModel.state.collectAsState()
+    val currentUser by authViewModel.currentUser.collectAsState()
     val context = LocalContext.current
 
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-        // En-tête
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        // 🛒 En-tête
         Text(
             text = "Votre Panier",
             style = MaterialTheme.typography.headlineMedium,
@@ -41,7 +48,7 @@ fun CartScreen(cartViewModel: CartViewModel) {
                 Text("Votre panier est vide", style = MaterialTheme.typography.bodyLarge)
             }
         } else {
-            // Liste des articles
+            // 📦 Liste des articles
             LazyColumn(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -84,14 +91,13 @@ fun CartScreen(cartViewModel: CartViewModel) {
                 }
             }
 
-            // Total et bouton de commande
+            // ✅ Total + bouton commande
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 16.dp)
             ) {
                 Divider()
-
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
@@ -104,7 +110,18 @@ fun CartScreen(cartViewModel: CartViewModel) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
-                    onClick = { /* TODO: Passer commande */ },
+                    onClick = {
+                        if (currentUser != null) {
+                            onNavigateToPayment()
+                        } else {
+                            onNavigateToAuth()
+                            Toast.makeText(
+                                context,
+                                "Connectez-vous pour finaliser votre commande",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(50.dp),
@@ -114,7 +131,7 @@ fun CartScreen(cartViewModel: CartViewModel) {
                         contentColor = Color.White
                     )
                 ) {
-                    Text("Passer la commande", style = MaterialTheme.typography.labelLarge)
+                    Text("PASSER LA COMMANDE", fontWeight = FontWeight.Bold)
                 }
             }
         }
