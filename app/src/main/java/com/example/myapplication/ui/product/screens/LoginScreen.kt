@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myapplication.ui.product.AuthViewModel
 import com.example.myapplication.ui.product.AuthIntent
-import com.example.myapplication.ui.product.LoginViewState
+
+
 
 @Composable
 fun LoginScreen(

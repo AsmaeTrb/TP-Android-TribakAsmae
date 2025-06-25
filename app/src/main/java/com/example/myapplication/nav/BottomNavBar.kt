@@ -1,40 +1,45 @@
 package com.example.myapplication.nav
-
+import androidx.compose.runtime.getValue
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.painterResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.myapplication.ui.product.AuthViewModel
 
 @Composable
-fun BottomNavigationBar(navController: NavController) {
-    val navBackStackEntry = navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry.value?.destination?.route
+fun BottomNavigationBar(
+    navController: NavController,
+    authViewModel: AuthViewModel = viewModel()
+) {
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+    val currentUser by authViewModel.currentUser.collectAsState()
 
-    NavigationBar(containerColor = Color.Black) {
+    NavigationBar {
         BottomNavItem.items.forEach { item ->
+            val targetRoute = if (item == BottomNavItem.Profile && currentUser == null) {
+                BottomNavItem.AuthWelcome.route
+            } else {
+                item.route
+            }
             NavigationBarItem(
-                selected = currentRoute == item.route,
+                icon = { Icon(painterResource(item.iconRes), contentDescription = item.label) },
+                label = { Text(item.label) },
+                selected = currentRoute == item.route ||
+                        (item == BottomNavItem.Profile && currentRoute == BottomNavItem.AuthWelcome.route),
                 onClick = {
-                    if (currentRoute != item.route) {
-                        navController.navigate(item.route)
+                    navController.navigate(targetRoute) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
                     }
-                },
-                icon = {
-                    Icon(
-                        painter = painterResource(id = item.iconRes),
-                        contentDescription = item.label,
-                        tint = if (currentRoute == item.route) Color.White else Color.Gray
-                    )
-                },
-                label = {
-                    Text(
-                        text = item.label,
-                        color = if (currentRoute == item.route) Color.White else Color.Gray
-                    )
-                },
-                alwaysShowLabel = true
+                }
             )
         }
     }

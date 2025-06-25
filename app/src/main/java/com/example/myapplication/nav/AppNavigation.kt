@@ -1,31 +1,18 @@
 package com.example.myapplication.nav
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import androidx.navigation.navArgument
-import coil.compose.AsyncImage
 import com.example.myapplication.ui.cart.CartScreen
 import com.example.myapplication.ui.cart.CartViewModel
-import com.example.myapplication.ui.product.AuthViewModel
-import com.example.myapplication.ui.product.ProductIntent
-import com.example.myapplication.ui.product.ProductViewModel
+import com.example.myapplication.ui.product.*
 import com.example.myapplication.ui.product.screens.*
-import com.example.myapplication.ui.generateCategoryList.generateCategoryList
 
 object Routes {
     const val Home = "home"
@@ -36,32 +23,43 @@ object Routes {
     const val Register = "register"
     const val Catalogue = "catalogue"
     const val ProductsByCategory = "products"
+    const val AuthWelcome = "authWelcome"
 }
 
 @Composable
 fun AppNavigation(
     productViewModel: ProductViewModel = viewModel(),
     cartViewModel: CartViewModel = viewModel(),
-    authViewModel: AuthViewModel = viewModel()
+    authViewModel: AuthViewModel = viewModel(),
+    sessionViewModel: SessionViewModel = viewModel()
 ) {
     val navController = rememberNavController()
     val productState by productViewModel.state.collectAsState()
+    val loginState by authViewModel.loginState.collectAsState()
+    val isLoggedIn by sessionViewModel.isLoggedIn.collectAsState()
+    val currentUser by authViewModel.currentUser.collectAsState()
 
     LaunchedEffect(Unit) {
         productViewModel.handleIntent(ProductIntent.LoadProducts)
     }
 
-    Scaffold(
-        bottomBar = {
-            BottomNavigationBar(navController)
+    LaunchedEffect(loginState.isSuccess) {
+        if (loginState.isSuccess) {
+            sessionViewModel.login()
+            navController.navigate(Routes.Profile) {
+                popUpTo(Routes.Login) { inclusive = true }
+            }
         }
+    }
+
+    Scaffold(
+        bottomBar = { BottomNavigationBar(navController, authViewModel) }
     ) { innerPadding ->
         NavHost(
             navController = navController,
             startDestination = Routes.Home,
             modifier = Modifier.padding(innerPadding)
         ) {
-
             composable(Routes.Home) {
                 HomeScreen(
                     viewModel = productViewModel,
@@ -69,13 +67,13 @@ fun AppNavigation(
                         navController.navigate("${Routes.ProductDetails}/$productId")
                     },
                     onCartClick = { navController.navigate(Routes.Cart) },
-                    onLoginClick = { navController.navigate(Routes.Login) },
+                    onLoginClick = { navController.navigate(Routes.Profile) },
                     onRegisterClick = { navController.navigate(Routes.Register) }
                 )
             }
 
             composable(
-                "${Routes.ProductDetails}/{productId}",
+                route = "${Routes.ProductDetails}/{productId}",
                 arguments = listOf(navArgument("productId") { type = NavType.StringType })
             ) { backStackEntry ->
                 val productId = backStackEntry.arguments?.getString("productId") ?: return@composable
@@ -96,33 +94,57 @@ fun AppNavigation(
                 CartScreen(cartViewModel = cartViewModel)
             }
 
-            composable(Routes.Login) {
-                LoginScreen(
-                    onLoginSuccess = {
-                        navController.navigate(Routes.Home) {
-                            popUpTo(Routes.Login) { inclusive = true }
+            composable(Routes.Profile) {
+                if (isLoggedIn && currentUser != null) {
+                    ProfileScreen(
+                        user = currentUser!!,
+                        onLogout = {
+                            sessionViewModel.logout()
+                            navController.navigate(Routes.Home) {
+                                popUpTo(Routes.Profile) { inclusive = true }
+                            }
                         }
-                    },
-                    onNavigateToRegister = {
-                        navController.navigate(Routes.Register)
-                    },
-                    authViewModel = authViewModel
+                    )
+                } else {
+                    AuthWelcomeScreen(
+                        onNavigateToLogin = { navController.navigate(Routes.Login) },
+                        onNavigateToRegister = { navController.navigate(Routes.Register) }
+                    )
+                }
+            }
+
+            composable(Routes.AuthWelcome) {
+                AuthWelcomeScreen(
+                    onNavigateToLogin = { navController.navigate(Routes.Login) },
+                    onNavigateToRegister = { navController.navigate(Routes.Register) }
                 )
             }
 
             composable(Routes.Register) {
                 RegisterScreen(
+                    authViewModel = authViewModel,
+                    onBack = { navController.popBackStack() },
                     onRegisterSuccess = {
-                        navController.navigate(Routes.Home) {
+                        sessionViewModel.login()
+                        navController.navigate(Routes.Profile) {
                             popUpTo(Routes.Register) { inclusive = true }
                         }
-                    },
-                    onNavigateToLogin = {
-                        navController.navigate(Routes.Login) {
-                            popUpTo(Routes.Register) { inclusive = true }
+                    }
+                )
+            }
+
+            composable(Routes.Login) {
+                LoginScreen(
+                    authViewModel = authViewModel,
+                    onLoginSuccess = {
+                        sessionViewModel.login()
+                        navController.navigate(Routes.Profile) {
+                            popUpTo(Routes.Login) { inclusive = true }
                         }
                     },
-                    authViewModel = authViewModel
+                    onNavigateToRegister = {
+                        navController.navigate(Routes.Register)
+                    }
                 )
             }
 
@@ -135,13 +157,11 @@ fun AppNavigation(
                 )
             }
 
-
             composable(
                 route = "${Routes.ProductsByCategory}/{category}",
                 arguments = listOf(navArgument("category") { type = NavType.StringType })
             ) { backStackEntry ->
                 val category = backStackEntry.arguments?.getString("category") ?: return@composable
-
                 ProductsByCategoryScreen(
                     category = category,
                     products = productState.products,
