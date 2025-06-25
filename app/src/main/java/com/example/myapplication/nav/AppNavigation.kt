@@ -83,6 +83,7 @@ fun AppNavigation(
                     DetailsProductScreen(
                         product = product,
                         cartViewModel = cartViewModel,
+                        navController = navController, // ✅ ajout ici
                         onBack = { navController.popBackStack() }
                     )
                 } else {
