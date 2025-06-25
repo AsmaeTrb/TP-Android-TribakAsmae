@@ -1,28 +1,37 @@
 package com.example.myapplication.ui.product
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.Entities.User
 import com.example.myapplication.data.Repository.UserRepository
+import com.example.myapplication.data.Session.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val sessionManager: SessionManager
 ) : ViewModel() {
-    // État actuel
+
     private val _loginState = MutableStateFlow(LoginViewState())
     val loginState: StateFlow<LoginViewState> = _loginState
 
-    // Utilisateur connecté
     private val _currentUser = MutableStateFlow<User?>(null)
     val currentUser: StateFlow<User?> = _currentUser
 
-    // Vérifie si l'utilisateur est connecté
     val isLoggedIn: Boolean
         get() = _currentUser.value != null
+
+    init {
+        // ✅ Charger la session sauvegardée (si utilisateur déjà connecté)
+        sessionManager.getUser()?.let {
+            _currentUser.value = it
+        }
+    }
 
     fun handleIntent(intent: AuthIntent) {
         when (intent) {
@@ -45,6 +54,7 @@ class AuthViewModel @Inject constructor(
                 val user = userRepository.loginUser(email, password)
                 if (user != null) {
                     _currentUser.value = user
+                    sessionManager.saveUser(user)
                     _loginState.value = LoginViewState(isSuccess = true)
                 } else {
                     _loginState.value = LoginViewState(error = "Identifiants incorrects")
@@ -69,6 +79,7 @@ class AuthViewModel @Inject constructor(
                 val (success, errorMessage) = userRepository.registerUser(user)
                 if (success) {
                     _currentUser.value = user
+                    sessionManager.saveUser(user)
                     _loginState.value = LoginViewState(isSuccess = true)
                 } else {
                     _loginState.value = LoginViewState(error = errorMessage)
@@ -79,9 +90,9 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-
     private fun logout() {
         _currentUser.value = null
+        sessionManager.clearUser() // ✅ Effacer la session enregistrée
         _loginState.value = LoginViewState()
     }
 

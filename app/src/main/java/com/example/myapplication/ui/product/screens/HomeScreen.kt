@@ -18,9 +18,6 @@ import com.example.myapplication.ui.product.component.ProductsComponent
 @Composable
 fun HomeScreen(
     onNavigateToDetails: (String) -> Unit,
-    onCartClick: () -> Unit,
-    onLoginClick: () -> Unit,
-    onRegisterClick: () -> Unit,
     viewModel: ProductViewModel = viewModel()
 ) {
     val state by viewModel.state.collectAsState()

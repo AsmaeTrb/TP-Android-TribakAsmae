@@ -33,9 +33,6 @@ fun GreetingPreview() {
     MyApplicationTheme {
         com.example.myapplication.ui.product.screens.HomeScreen(
             onNavigateToDetails = {},
-            onCartClick = {},
-            onLoginClick = {},
-            onRegisterClick = {}
         )
     }
 }

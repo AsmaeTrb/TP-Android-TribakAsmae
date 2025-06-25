@@ -69,14 +69,6 @@ fun AppNavigation(
                             launchSingleTop = true
                         }
                     },
-                    onCartClick = {
-                        navController.navigate(Routes.Cart) {
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    },
-                    onLoginClick = { navController.navigate(Routes.Profile) },
-                    onRegisterClick = { navController.navigate(Routes.Register) }
                 )
             }
 
