@@ -8,7 +8,7 @@ sealed class BottomNavItem(
     val iconRes: Int
 ) {
     object Home : BottomNavItem("home", "HOME", R.drawable.home)
-    object Cart : BottomNavItem("cart", "PANIER", R.drawable.stars)
+    object Cart : BottomNavItem("cart", "PANIER", R.drawable.cart)
     object Profile : BottomNavItem("profile", "PROFILE", R.drawable.account)
     object Products : BottomNavItem("catalogue", "PRODUCTS", R.drawable.category)
     object AuthWelcome : BottomNavItem("authWelcome", "PROFILE", R.drawable.account)
