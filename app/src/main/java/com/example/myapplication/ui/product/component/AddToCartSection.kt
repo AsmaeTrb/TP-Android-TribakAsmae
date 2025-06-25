@@ -1,5 +1,5 @@
 package com.example.myapplication.ui.product.component
-
+import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.shape.RoundedCornerShape
 import com.example.myapplication.data.Entities.ProductSize
-
 @Composable
 fun AddToCartSection(
     name: String,
@@ -29,6 +28,7 @@ fun AddToCartSection(
     wishlistCount: Int = 7
 ) {
     var showSizeDialog by remember { mutableStateOf(false) }
+    var selectedSize by remember { mutableStateOf(sizes.firstOrNull()?.size ?: "") }
 
     Column(modifier = Modifier.fillMaxWidth()) {
         // Ligne avec nom et icône
@@ -39,11 +39,26 @@ fun AddToCartSection(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = name.uppercase(), fontSize = 13.sp, color = Color.Black)
+            Text(
+                text = name.uppercase(),
+                fontSize = 13.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.FavoriteBorder, contentDescription = "wishlist", tint = Color.Black)
-                Text("+$wishlistCount", fontSize = 13.sp, modifier = Modifier.padding(start = 4.dp), color = Color.Black)
+                Icon(
+                    Icons.Default.FavoriteBorder,
+                    contentDescription = "wishlist",
+                    tint = Color.Black,
+                    modifier = Modifier.size(18.dp)
+                )
+                Text(
+                    "+$wishlistCount",
+                    fontSize = 13.sp,
+                    modifier = Modifier.padding(start = 4.dp),
+                    color = Color.Black
+                )
             }
         }
 
@@ -53,7 +68,8 @@ fun AddToCartSection(
             fontSize = 13.sp,
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 4.dp),
-            color = Color.Black
+            color = Color.Black,
+            fontWeight = FontWeight.Bold
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -66,36 +82,85 @@ fun AddToCartSection(
                 .padding(horizontal = 16.dp)
                 .height(48.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color.White,
-                contentColor = Color.Black
+                containerColor = Color.Black,
+                contentColor = Color.White
             ),
-            shape = RoundedCornerShape(0.dp),
-            border = BorderStroke(1.dp, Color.Black)
+            shape = RoundedCornerShape(0.dp)
         ) {
             Text("AJOUTER", fontWeight = FontWeight.Bold)
         }
 
-        // Dialog de sélection de taille
+        // Dialog de sélection de taille amélioré
         if (showSizeDialog) {
             AlertDialog(
                 onDismissRequest = { showSizeDialog = false },
-                confirmButton = {},
+                shape = RoundedCornerShape(8.dp),
+                title = {
+                    Text(
+                        text = "TROUVEZ VOTRE TAILLE",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold
+                    )
+                },
                 text = {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        // Liste des tailles disponibles
                         sizes.filter { it.quantity > 0 }.forEach { size ->
-                            Text(
-                                text = "${size.size} (${size.quantity} dispo)",
-                                fontSize = 18.sp,
+                            Box(
                                 modifier = Modifier
-                                    .padding(8.dp)
+                                    .fillMaxWidth()
+                                    .padding(vertical = 8.dp)
                                     .clickable {
-                                        showSizeDialog = false
-                                        onAddToCart(size.size)
+                                        selectedSize = size.size
                                     }
-                            )
+                                    .background(
+                                        if (selectedSize == size.size) Color.LightGray else Color.Transparent,
+                                        shape = RoundedCornerShape(4.dp)
+                                    )
+                                    .padding(12.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Text(
+                                        text = size.size,
+                                        fontSize = 16.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        text = "${size.quantity} disponible(s)",
+                                        fontSize = 14.sp,
+                                        color = Color.Gray
+                                    )
+                                }
+                            }
                         }
-                        Spacer(modifier = Modifier.height(12.dp))
-                        Text("TROUVEZ VOTRE TAILLE", fontSize = 12.sp)
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            if (selectedSize.isNotEmpty()) {
+                                onAddToCart(selectedSize)
+                                showSizeDialog = false
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.Black,
+                            contentColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(0.dp),
+                        enabled = selectedSize.isNotEmpty()
+                    ) {
+                        Text("CONFIRMER", fontWeight = FontWeight.Bold)
                     }
                 }
             )

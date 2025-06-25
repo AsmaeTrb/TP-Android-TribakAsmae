@@ -64,9 +64,17 @@ fun AppNavigation(
                 HomeScreen(
                     viewModel = productViewModel,
                     onNavigateToDetails = { productId ->
-                        navController.navigate("${Routes.ProductDetails}/$productId")
+                        navController.navigate("${Routes.ProductDetails}/$productId"){
+                            // Configuration pour une navigation fluide
+                            launchSingleTop = true
+                        }
                     },
-                    onCartClick = { navController.navigate(Routes.Cart) },
+                    onCartClick = {
+                        navController.navigate(Routes.Cart) {
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    },
                     onLoginClick = { navController.navigate(Routes.Profile) },
                     onRegisterClick = { navController.navigate(Routes.Register) }
                 )
@@ -92,8 +100,13 @@ fun AppNavigation(
             }
 
             composable(Routes.Cart) {
-                CartScreen(cartViewModel = cartViewModel)
+                CartTabsScreen(
+                    cartViewModel = cartViewModel,
+                    authViewModel = authViewModel,
+                    onNavigateToAuth = { navController.navigate(Routes.Login) }
+                )
             }
+
 
             composable(Routes.Profile) {
                 if (isLoggedIn && currentUser != null) {
