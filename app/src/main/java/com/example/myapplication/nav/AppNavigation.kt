@@ -1,14 +1,12 @@
 package com.example.myapplication.nav
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import android.widget.Toast
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
@@ -29,20 +27,21 @@ object Routes {
     const val ProductsByCategory = "products"
     const val AuthWelcome = "authWelcome"
     const val Splash = "splash"
+    const val Payment = "payment"
 }
 
 @Composable
 fun AppNavigation(
     productViewModel: ProductViewModel = viewModel(),
     cartViewModel: CartViewModel = viewModel(),
-    authViewModel: AuthViewModel = viewModel(),
-    sessionViewModel: SessionViewModel = viewModel()
+    authViewModel: AuthViewModel = viewModel()
 ) {
     val navController = rememberNavController()
     val productState by productViewModel.state.collectAsState()
     val loginState by authViewModel.loginState.collectAsState()
-    val isLoggedIn by sessionViewModel.isLoggedIn.collectAsState()
     val currentUser by authViewModel.currentUser.collectAsState()
+    val isLoggedIn = currentUser != null
+    val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         productViewModel.handleIntent(ProductIntent.LoadProducts)
@@ -50,12 +49,30 @@ fun AppNavigation(
 
     LaunchedEffect(loginState.isSuccess) {
         if (loginState.isSuccess) {
-            sessionViewModel.login()
-            navController.navigate(Routes.Profile) {
-                popUpTo(Routes.Login) { inclusive = true }
+            val currentEntry = navController.currentBackStackEntry
+            val shouldRedirect = currentEntry
+                ?.savedStateHandle
+                ?.get<Boolean>("redirect_to_payment") ?: false
+
+            // Supprimer le flag après lecture pour éviter boucle infinie
+            currentEntry?.savedStateHandle?.remove<Boolean>("redirect_to_payment")
+
+            if (shouldRedirect) {
+                // Supprimer Cart de la stack sinon on revient dessus
+                navController.popBackStack(Routes.Cart, inclusive = true)
+
+                // Aller vers Payment
+                navController.navigate(Routes.Payment)
+            } else {
+                navController.navigate(Routes.Profile) {
+                    popUpTo(Routes.Login) { inclusive = true }
+                }
             }
+
+            authViewModel.handleIntent(AuthIntent.ResetState)
         }
     }
+
 
     Scaffold(
         bottomBar = { BottomNavigationBar(navController, authViewModel) }
@@ -65,19 +82,19 @@ fun AppNavigation(
             startDestination = Routes.Splash,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable(Routes.Splash) {
+                SplashScreen(navController)
+            }
+
             composable(Routes.Home) {
                 HomeScreen(
                     viewModel = productViewModel,
                     onNavigateToDetails = { productId ->
-                        navController.navigate("${Routes.ProductDetails}/$productId"){
-                            // Configuration pour une navigation fluide
+                        navController.navigate("${Routes.ProductDetails}/$productId") {
                             launchSingleTop = true
                         }
-                    },
+                    }
                 )
-            }
-            composable(Routes.Splash) {
-                SplashScreen(navController)
             }
 
             composable(
@@ -91,7 +108,7 @@ fun AppNavigation(
                     DetailsProductScreen(
                         product = product,
                         cartViewModel = cartViewModel,
-                        navController = navController, // ✅ ajout ici
+                        navController = navController,
                         onBack = { navController.popBackStack() }
                     )
                 } else {
@@ -103,24 +120,37 @@ fun AppNavigation(
                 CartTabsScreen(
                     cartViewModel = cartViewModel,
                     authViewModel = authViewModel,
-                    onNavigateToAuth = { navController.navigate(Routes.Login) },
-                    onNavigateToPayment = {
-                        // Exemple : redirige vers une future page de paiement
-                        navController.navigate("payment") // à adapter selon ton routing
+                    onNavigateToAuth = {
+                        navController.currentBackStackEntry
+                            ?.savedStateHandle
+                            ?.set("redirect_to_payment", true)
+
+                        navController.navigate(Routes.Login) {
+                            popUpTo(Routes.Cart) { inclusive = true } // Retire l'écran panier
+                        }
+                    },
+                            onNavigateToPayment = {
+                        navController.navigate(Routes.Payment)
                     }
                 )
             }
 
             composable(Routes.Profile) {
-                if (isLoggedIn && currentUser != null) {
+                if (isLoggedIn) {
                     ProfileScreen(
                         user = currentUser!!,
                         onLogout = {
-                            sessionViewModel.logout()
-                            navController.navigate(Routes.Home) {
-                                popUpTo(Routes.Profile) { inclusive = true }
+                            authViewModel.handleIntent(AuthIntent.Logout)
+
+                            Toast.makeText(context, "Déconnexion réussie", Toast.LENGTH_SHORT).show()
+
+                            navController.navigate(Routes.Login) {
+                                popUpTo(Routes.Home) { inclusive = false } // garde Home dans la stack
+                                launchSingleTop = true
                             }
                         }
+
+
                     )
                 } else {
                     AuthWelcomeScreen(
@@ -142,7 +172,6 @@ fun AppNavigation(
                     authViewModel = authViewModel,
                     onBack = { navController.popBackStack() },
                     onRegisterSuccess = {
-                        sessionViewModel.login()
                         navController.navigate(Routes.Profile) {
                             popUpTo(Routes.Register) { inclusive = true }
                         }
@@ -153,22 +182,33 @@ fun AppNavigation(
             composable(Routes.Login) {
                 LoginScreen(
                     authViewModel = authViewModel,
-                    onLoginSuccess = {
-                        sessionViewModel.login()
-                        navController.navigate(Routes.Profile) {
-                            popUpTo(Routes.Login) { inclusive = true }
-                        }
-                    },
-                    onNavigateToRegister = {
-                        navController.navigate(Routes.Register)
-                    }
+                    onLoginSuccess = { /* Géré via LaunchedEffect */ },
+                    onNavigateToRegister = { navController.navigate(Routes.Register) }
                 )
             }
-            composable("payment") {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("Page de paiement à venir", style = MaterialTheme.typography.headlineMedium)
+
+            composable(Routes.Payment) {
+                if (currentUser != null) {
+                    PaymentScreen()
+                } else {
+                    LaunchedEffect(Unit) {
+                        Toast
+                            .makeText(context, "Veuillez vous connecter", Toast.LENGTH_SHORT)
+                            .show()
+                        navController.navigate(Routes.Login) {
+                            popUpTo(Routes.Payment) { inclusive = true }
+                        }
+                    }
+
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
                 }
             }
+
             composable(Routes.Catalogue) {
                 CatalogueScreen(
                     products = productState.products,
