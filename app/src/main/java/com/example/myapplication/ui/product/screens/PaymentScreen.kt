@@ -1,8 +1,10 @@
 package com.example.myapplication.ui.product.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
@@ -15,6 +17,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TextButton
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,21 +26,8 @@ fun PaymentScreen(
     onConfirm: () -> Unit,
     onBack: () -> Unit
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Paiement") },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Retour")
-                    }
-                }
-            )
-        }
-    ) { padding ->
         Column(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
@@ -50,6 +41,11 @@ fun PaymentScreen(
             ) {
                 Text("Confirmer la commande")
             }
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextButton(onClick = onBack, modifier = Modifier.align(Alignment.Start)) {
+                Text("Retour")
+            }
         }
+
     }
-}

@@ -1,6 +1,6 @@
 package com.example.myapplication.data.DI
 
-
+import com.example.myapplication.data.Api.OrderApi
 import com.example.myapplication.data.Api.ProductApi
 import com.example.myapplication.data.Api.UserApi
 import dagger.Module
@@ -12,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
@@ -42,4 +43,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+    @Provides
+    @Singleton
+    fun provideOrderApi(retrofit: Retrofit): OrderApi = retrofit.create(OrderApi::class.java)
 }
