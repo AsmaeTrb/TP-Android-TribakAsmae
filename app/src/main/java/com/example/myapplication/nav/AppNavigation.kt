@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import com.example.myapplication.ui.cart.CartScreen
 import com.example.myapplication.ui.cart.CartViewModel
 import com.example.myapplication.ui.product.*
+import com.example.myapplication.ui.product.component.CheckoutComponent
 import com.example.myapplication.ui.product.screens.*
 
 object Routes {
@@ -27,7 +28,10 @@ object Routes {
     const val ProductsByCategory = "products"
     const val AuthWelcome = "authWelcome"
     const val Splash = "splash"
+    const val Checkout = "checkout"
+    const val Shipping = "shipping"
     const val Payment = "payment"
+    const val OrderConfirmation = "confirmation"
 }
 
 @Composable
@@ -52,17 +56,17 @@ fun AppNavigation(
             val currentEntry = navController.currentBackStackEntry
             val shouldRedirect = currentEntry
                 ?.savedStateHandle
-                ?.get<Boolean>("redirect_to_payment") ?: false
+                ?.get<Boolean>("redirect_to_Checkout") ?: false
 
             // Supprimer le flag après lecture pour éviter boucle infinie
-            currentEntry?.savedStateHandle?.remove<Boolean>("redirect_to_payment")
+            currentEntry?.savedStateHandle?.remove<Boolean>("redirect_to_Checkout")
 
             if (shouldRedirect) {
                 // Supprimer Cart de la stack sinon on revient dessus
                 navController.popBackStack(Routes.Cart, inclusive = true)
 
-                // Aller vers Payment
-                navController.navigate(Routes.Payment)
+                // Aller vers Checkout
+                navController.navigate(Routes.Checkout)
             } else {
                 navController.navigate(Routes.Profile) {
                     popUpTo(Routes.Login) { inclusive = true }
@@ -123,14 +127,14 @@ fun AppNavigation(
                     onNavigateToAuth = {
                         navController.currentBackStackEntry
                             ?.savedStateHandle
-                            ?.set("redirect_to_payment", true)
+                            ?.set("redirect_to_Checkout", true)
 
                         navController.navigate(Routes.Login) {
                             popUpTo(Routes.Cart) { inclusive = true } // Retire l'écran panier
                         }
                     },
-                            onNavigateToPayment = {
-                        navController.navigate(Routes.Payment)
+                    onNavigateToCheckout = {
+                        navController.navigate(Routes.Checkout )
                     }
                 )
             }
@@ -187,16 +191,16 @@ fun AppNavigation(
                 )
             }
 
-            composable(Routes.Payment) {
+            composable(Routes.Checkout) {
                 if (currentUser != null) {
-                    PaymentScreen()
+                    CheckoutComponent(navController)
                 } else {
                     LaunchedEffect(Unit) {
                         Toast
                             .makeText(context, "Veuillez vous connecter", Toast.LENGTH_SHORT)
                             .show()
                         navController.navigate(Routes.Login) {
-                            popUpTo(Routes.Payment) { inclusive = true }
+                            popUpTo(Routes.Checkout) { inclusive = true }
                         }
                     }
 

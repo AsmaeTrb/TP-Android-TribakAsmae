@@ -21,7 +21,7 @@ fun CartScreen(
     cartViewModel: CartViewModel,
     authViewModel: AuthViewModel,
     onNavigateToAuth: () -> Unit,
-    onNavigateToPayment: () -> Unit
+    onNavigateToCheckout: () -> Unit
 ) {
     val state by cartViewModel.state.collectAsState()
     val currentUser by authViewModel.currentUser.collectAsState()
@@ -111,7 +111,7 @@ fun CartScreen(
                 Button(
                     onClick = {
                         if (currentUser != null) {
-                            onNavigateToPayment()
+                            onNavigateToCheckout()
                         } else {
                             onNavigateToAuth()
                             Toast.makeText(

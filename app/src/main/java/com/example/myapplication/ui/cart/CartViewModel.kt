@@ -70,4 +70,7 @@ class CartViewModel : ViewModel() {
             // Réinitialisez les états nécessaires ici
         )
     }
+    fun clearCart() {
+        _state.value = CartViewState(emptyList())
+    }
 }

@@ -23,7 +23,7 @@ fun CartTabsScreen(
     cartViewModel: CartViewModel,
     authViewModel: AuthViewModel,
     onNavigateToAuth: () -> Unit,
-    onNavigateToPayment: () -> Unit
+    onNavigateToCheckout: () -> Unit
 ) {
     var selectedTab by remember { mutableStateOf(0) }
     val cartState by cartViewModel.state.collectAsState()
@@ -84,8 +84,7 @@ fun CartTabsScreen(
                     cartViewModel = cartViewModel,
                     onNavigateToAuth = onNavigateToAuth,
                     authViewModel = authViewModel,
-                    onNavigateToPayment = onNavigateToPayment
-                )
+                    onNavigateToCheckout = onNavigateToCheckout)
                 1 -> {
                     if (isLoggedIn) {
                         Box(
