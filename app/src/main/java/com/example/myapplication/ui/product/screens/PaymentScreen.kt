@@ -1,25 +1,30 @@
 package com.example.myapplication.ui.product.screens
+import androidx.compose.foundation.Image
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.ui.product.component.PaymentCardOption
-import com.example.myapplication.ui.product.component.SummaryRow
-
 import com.example.myapplication.ui.cart.CartViewModel
-import androidx.compose.runtime.getValue
 import com.example.myapplication.data.Entities.CardDetails
 import com.example.myapplication.data.Entities.PaymentMethod
+import com.example.myapplication.ui.product.component.CreditCardExpiryVisualTransformation
+import com.example.myapplication.ui.product.component.PaymentCardOption
+import com.example.myapplication.ui.product.component.SummaryRow
+import com.example.myapplication.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -30,8 +35,9 @@ fun PaymentScreen(
 ) {
     val cartState by cartViewModel.state.collectAsState()
     val subtotal = cartState.items.sumOf { it.product.price * it.quantity }
-    val tax = subtotal * 0.05 // 5% tax
+    val tax = subtotal * 0.05
     val total = subtotal + tax
+    val context = LocalContext.current
 
     var selectedMethod by remember { mutableStateOf<PaymentMethod?>(null) }
     var cardDetails by remember { mutableStateOf(CardDetails()) }
@@ -42,7 +48,6 @@ fun PaymentScreen(
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
-        // Header
         Text(
             "PAYMENT METHOD",
             style = MaterialTheme.typography.titleLarge.copy(
@@ -52,7 +57,6 @@ fun PaymentScreen(
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Carte bancaire option
         PaymentCardOption(
             title = "CREDIT OR DEBIT CARD",
             isSelected = selectedMethod == PaymentMethod.CARD,
@@ -61,6 +65,7 @@ fun PaymentScreen(
 
         if (selectedMethod == PaymentMethod.CARD) {
             Column(modifier = Modifier.padding(vertical = 8.dp)) {
+
                 OutlinedTextField(
                     value = cardDetails.holder,
                     onValueChange = { cardDetails = cardDetails.copy(holder = it) },
@@ -75,7 +80,7 @@ fun PaymentScreen(
                     onValueChange = {
                         if (it.length <= 16) cardDetails = cardDetails.copy(number = it)
                     },
-                    label = { Text("Card number") },
+                    label = { Text("Number") },
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
@@ -90,7 +95,8 @@ fun PaymentScreen(
                         },
                         label = { Text("MM/YY") },
                         modifier = Modifier.weight(1f),
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        visualTransformation = CreditCardExpiryVisualTransformation()
                     )
 
                     Spacer(modifier = Modifier.width(16.dp))
@@ -105,10 +111,22 @@ fun PaymentScreen(
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                     )
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text("WE ACCEPT", style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold))
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    modifier = Modifier.padding(vertical = 8.dp)
+                ) {
+                    Image(painter = painterResource(R.drawable.ic_visa), contentDescription = "Visa", modifier = Modifier.size(40.dp))
+                    Image(painter = painterResource(R.drawable.ic_mastercard), contentDescription = "MasterCard", modifier = Modifier.size(40.dp))
+                    Image(painter = painterResource(R.drawable.ic_diners), contentDescription = "Diners Club", modifier = Modifier.size(40.dp))
+                }
             }
         }
 
-        // PayPal option
         PaymentCardOption(
             title = "PAYPAL",
             isSelected = selectedMethod == PaymentMethod.PAYPAL,
@@ -123,37 +141,28 @@ fun PaymentScreen(
             )
         }
 
-        // Order Summary
         Spacer(modifier = Modifier.height(16.dp))
         Divider()
-
-        Column(
-            modifier = Modifier.padding(vertical = 16.dp)
-        ) {
-            Text(
-                "ORDER SUMMARY",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-
+        Column(modifier = Modifier.padding(vertical = 16.dp)) {
+            Text("ORDER SUMMARY", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(bottom = 8.dp))
             SummaryRow("Subtotal", "US$ ${"%.2f".format(subtotal)}")
             SummaryRow("Delivery", "Free")
             SummaryRow("Estimated Tax", "US$ ${"%.2f".format(tax)}")
-
             Spacer(modifier = Modifier.height(8.dp))
             Divider()
             Spacer(modifier = Modifier.height(8.dp))
-
-            SummaryRow(
-                "TOTAL",
-                "US$ ${"%.2f".format(total)}",
-                textStyle = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
-            )
+            SummaryRow("TOTAL", "US$ ${"%.2f".format(total)}", textStyle = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold))
         }
 
-        // Pay Button
         Button(
-            onClick = onConfirm,
+            onClick = {
+                if (selectedMethod == PaymentMethod.PAYPAL) {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/signin"))
+                    context.startActivity(intent)
+                } else {
+                    onConfirm()
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
@@ -172,7 +181,6 @@ fun PaymentScreen(
             )
         }
 
-        // Terms
         Text(
             "By completing the purchase, you confirm that you have read, understood and agree to the Terms and conditions.",
             style = MaterialTheme.typography.bodySmall,

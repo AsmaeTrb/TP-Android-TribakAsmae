@@ -1,4 +1,5 @@
 package com.example.myapplication.ui.product.component
+
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -13,7 +14,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.font.FontWeight
 
-
 @Composable
 fun PaymentCardOption(
     title: String,
@@ -26,36 +26,21 @@ fun PaymentCardOption(
             .clickable(onClick = onClick)
             .padding(vertical = 8.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected)
-                Color.LightGray.copy(alpha = 0.2f)
-            else
-                MaterialTheme.colorScheme.surface
+            containerColor = if (isSelected) Color.LightGray.copy(alpha = 0.2f) else MaterialTheme.colorScheme.surface
         ),
-        border = BorderStroke(
-            width = 1.dp,
-            color = if (isSelected) Color.Black else Color.LightGray
-        )
+        border = BorderStroke(width = 1.dp, color = if (isSelected) Color.Black else Color.LightGray)
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontWeight = FontWeight.Bold
-                )
+                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)
             )
-
             if (isSelected) {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = "Selected",
-                    tint = Color.Black
-                )
+                Icon(Icons.Default.Check, contentDescription = "Selected", tint = Color.Black)
             }
         }
     }
@@ -63,10 +48,7 @@ fun PaymentCardOption(
 
 @Composable
 fun SummaryRow(label: String, value: String, textStyle: TextStyle = MaterialTheme.typography.bodyLarge) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
         Text(label, style = textStyle)
         Text(value, style = textStyle)
     }

@@ -85,7 +85,7 @@ fun DetailsProductScreen(
                 contentDescription = product.name,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
+                    .height(700.dp)
                     .clip(RoundedCornerShape(0.dp)),
                 contentScale = ContentScale.Crop
             )
