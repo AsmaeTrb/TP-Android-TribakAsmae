@@ -4,15 +4,17 @@ data class Order(
     @SerializedName("userId") val userId: String,
     @SerializedName("items") val items: List<CartItem>,
     @SerializedName("totalPrice") val total: Double,
-    @SerializedName("shippingAddress") val shippingAddress: Address
+    @SerializedName("shippingAddress") val shippingAddress: Address,
+    @SerializedName("status") val status: String? = "pending"
+)
+ data class Address(
+@SerializedName("fullName") val fullName: String,
+@SerializedName("address") val address: String,          // au lieu de "street"
+@SerializedName("postalCode") val postalCode: String,    // au lieu de "zipCode"
+@SerializedName("phone") val phone: String,              // au lieu de "phoneNumber"
+@SerializedName("city") val city: String,
+@SerializedName("country") val country: String
 )
 
-data class Address(
-    @SerializedName("country") val country: String,
-    @SerializedName("city") val city: String,
-    @SerializedName("zipCode") val zipCode: String,
-    @SerializedName("street") val street: String,
-    @SerializedName("phoneNumber") val phoneNumber: String,
-    @SerializedName("fullName") val fullName: String
-)
+
 

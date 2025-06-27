@@ -73,6 +73,5 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.6.0")
     implementation ("androidx.navigation:navigation-compose:2.7.5")
     implementation ( "androidx.compose.animation:animation:1.6.1")
-
-
+    implementation ("com.airbnb.android:lottie-compose:6.1.0")
 }

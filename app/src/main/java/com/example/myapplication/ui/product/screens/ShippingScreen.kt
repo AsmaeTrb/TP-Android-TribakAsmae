@@ -187,12 +187,12 @@ fun ShippingScreen(
         Button(
             onClick = {
                 val shippingAddress = Address(
-                    country = "FR", // ou tu peux ajouter un champ input
+                    fullName = name,
+                    address = address,             // ✅ correspond à backend
+                    postalCode = zipCode,          // ✅
+                    phone = phone,                 // ✅
                     city = city,
-                    zipCode = zipCode,
-                    street = address,
-                    phoneNumber = phone,
-                    fullName = name
+                    country = "FR"
                 )
                 onContinue(shippingAddress)
             },
