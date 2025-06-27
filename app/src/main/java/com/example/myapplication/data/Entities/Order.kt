@@ -1,17 +1,18 @@
 package com.example.myapplication.data.Entities
-
+import com.google.gson.annotations.SerializedName
 data class Order(
-    val userId: String,
-    val products: List<CartItem>, // Crée aussi la classe CartItem si ce n’est pas fait
-    val total: Double,
-    val shippingAddress: Address
+    @SerializedName("userId") val userId: String,
+    @SerializedName("items") val items: List<CartItem>,
+    @SerializedName("totalPrice") val total: Double,
+    @SerializedName("shippingAddress") val shippingAddress: Address
 )
 
 data class Address(
-    val country: String,
-    val city: String,
-    val zipCode: String,
-    val street: String,
-    val phoneNumber: String,
-    val fullName: String
+    @SerializedName("country") val country: String,
+    @SerializedName("city") val city: String,
+    @SerializedName("zipCode") val zipCode: String,
+    @SerializedName("street") val street: String,
+    @SerializedName("phoneNumber") val phoneNumber: String,
+    @SerializedName("fullName") val fullName: String
 )
+

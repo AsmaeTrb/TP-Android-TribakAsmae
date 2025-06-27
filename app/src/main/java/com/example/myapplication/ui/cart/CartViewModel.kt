@@ -127,6 +127,16 @@ class CartViewModel @Inject constructor(
         }
     }
 
+    fun clearCartForUser(userId: String) {
+        viewModelScope.launch {
+            try {
+                cartApi.clearCart(userId) // ← si tu utilises @DELETE("/cart/{userId}")
+                _state.value = CartViewState(emptyList()) // vide localement aussi
+            } catch (e: Exception) {
+                println("Erreur lors du vidage du panier côté backend : ${e.message}")
+            }
+        }
+    }
 
     fun saveCartForUser(userId: String) {
         viewModelScope.launch {
@@ -138,7 +148,6 @@ class CartViewModel @Inject constructor(
                         selectedSize = it.selectedSize
                     )
                 }
-                cartApi.saveCart(CartRequest(userId, payload))
             } catch (e: Exception) {
                 // Log.e("Cart", "Erreur sauvegarde panier : ${e.message}")
             }

@@ -13,13 +13,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.myapplication.data.Entities.Address
 import com.example.myapplication.ui.cart.CartViewModel
 import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShippingScreen(
     cartViewModel: CartViewModel,
-    onContinue: () -> Unit,
+    onContinue: (Address) -> Unit,
     onBack: () -> Unit
 ) {
     val scrollState = rememberScrollState()
@@ -184,7 +185,17 @@ fun ShippingScreen(
 
         // Bouton de paiement
         Button(
-            onClick = onContinue,
+            onClick = {
+                val shippingAddress = Address(
+                    country = "FR", // ou tu peux ajouter un champ input
+                    city = city,
+                    zipCode = zipCode,
+                    street = address,
+                    phoneNumber = phone,
+                    fullName = name
+                )
+                onContinue(shippingAddress)
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 24.dp),
@@ -196,6 +207,7 @@ fun ShippingScreen(
         ) {
             Text("Continue to payment")
         }
+
     }
 }
 

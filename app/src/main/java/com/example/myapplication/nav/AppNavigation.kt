@@ -13,6 +13,7 @@ import androidx.navigation.compose.*
 import androidx.navigation.navArgument
 import com.example.myapplication.ui.cart.CartScreen
 import com.example.myapplication.ui.cart.CartViewModel
+import com.example.myapplication.ui.order.OrderViewModel
 import com.example.myapplication.ui.product.*
 import com.example.myapplication.ui.product.component.CheckoutComponent
 import com.example.myapplication.ui.product.screens.*
@@ -38,7 +39,8 @@ object Routes {
 fun AppNavigation(
     productViewModel: ProductViewModel = viewModel(),
     cartViewModel: CartViewModel = viewModel(),
-    authViewModel: AuthViewModel = viewModel()
+    authViewModel: AuthViewModel = viewModel(),
+    orderViewModel: OrderViewModel = viewModel()
 ) {
     val navController = rememberNavController()
     val productState by productViewModel.state.collectAsState()
@@ -218,7 +220,10 @@ fun AppNavigation(
                     CheckoutComponent(
                         navController = navController,
                         cartViewModel = cartViewModel ,
-                        onBack = { navController.popBackStack()  }// ✅ très important
+                        orderViewModel = orderViewModel,
+                        onBack = { navController.popBackStack() },
+                        currentUser = currentUser // ✅ Ajout de ce paramètre obligatoire
+// ✅ très important
                     )
                 } else {
                     LaunchedEffect(Unit) {
