@@ -4,12 +4,10 @@ import com.example.myapplication.data.Entities.Product
 
 fun generateCategoryList(products: List<Product>): List<Pair<String, String>> {
     val mainCategories = listOf(
-        "bags",
-        "glasses",
-        "jewelry",
-        "jackets",
         "dresses",
-        "shoes"
+        "jumpsuits",
+        "tops",
+        "bags",
     )
 
     // 🔁 Construire la liste avec une image personnalisée pour chaque catégorie
