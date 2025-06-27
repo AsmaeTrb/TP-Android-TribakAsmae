@@ -10,13 +10,18 @@ class UserRepository @Inject constructor(
     suspend fun getAllUsers(): List<User> {
         return userApi.getUsers()
     }
-    suspend fun registerUser(user: User): Pair<Boolean, String?> {
+    suspend fun registerUser(user: User): Pair<User?, String?> {
         val response = userApi.registerUser(user)
         return if (response.isSuccessful) {
-            Pair(true, null)
+            val registeredUser = response.body()
+            if (registeredUser != null) {
+                Pair(registeredUser, null)
+            } else {
+                Pair(null, "Réponse vide")
+            }
         } else {
             val errorMessage = response.errorBody()?.string()
-            Pair(false, errorMessage ?: "Échec de l'inscription")
+            Pair(null, errorMessage ?: "Échec de l'inscription")
         }
     }
 

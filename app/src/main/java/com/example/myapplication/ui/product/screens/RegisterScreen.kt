@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.product.screens
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -189,6 +190,7 @@ fun RegisterScreen(
                         AuthIntent.Register(email, password, firstName, lastName)
                     )
                 },
+
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),

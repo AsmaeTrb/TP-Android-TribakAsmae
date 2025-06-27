@@ -65,21 +65,22 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+
     private fun register(email: String, password: String, firstName: String, lastName: String) {
         viewModelScope.launch {
             _loginState.value = LoginViewState(isLoading = true)
             try {
                 val user = User(
-                    id = "",
+                    id = "", // <- temporaire
                     email = email,
                     password = password,
                     firstName = firstName,
                     lastName = lastName
                 )
-                val (success, errorMessage) = userRepository.registerUser(user)
-                if (success) {
-                    _currentUser.value = user
-                    sessionManager.saveUser(user)
+                val (registeredUser, errorMessage) = userRepository.registerUser(user)
+                if (registeredUser != null) {
+                    _currentUser.value = registeredUser
+                    sessionManager.saveUser(registeredUser)
                     _loginState.value = LoginViewState(isSuccess = true)
                 } else {
                     _loginState.value = LoginViewState(error = errorMessage)

@@ -1,5 +1,6 @@
 package com.example.myapplication.data.DI
 
+import com.example.myapplication.data.Api.CartApi
 import com.example.myapplication.data.Api.OrderApi
 import com.example.myapplication.data.Api.ProductApi
 import com.example.myapplication.data.Api.UserApi
@@ -46,4 +47,8 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOrderApi(retrofit: Retrofit): OrderApi = retrofit.create(OrderApi::class.java)
+    @Provides
+    @Singleton
+    fun provideCartApi(retrofit: Retrofit): CartApi = retrofit.create(CartApi::class.java)
+
 }

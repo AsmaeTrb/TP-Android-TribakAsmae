@@ -44,6 +44,25 @@ fun AppNavigation(
     val productState by productViewModel.state.collectAsState()
     val loginState by authViewModel.loginState.collectAsState()
     val currentUser by authViewModel.currentUser.collectAsState()
+    LaunchedEffect(currentUser) {
+        if (currentUser == null) {
+            val currentRoute = navController.currentDestination?.route
+            val isAuthRoute = currentRoute in listOf(
+                Routes.Login,
+                Routes.Register,
+                Routes.AuthWelcome,
+                Routes.Splash
+            )
+
+            if (!isAuthRoute) {
+                navController.navigate(Routes.AuthWelcome) {
+                    popUpTo(Routes.Home) { inclusive = false }
+                    launchSingleTop = true
+                }
+            }
+        }
+    }
+
     val isLoggedIn = currentUser != null
     val context = LocalContext.current
 
@@ -53,6 +72,8 @@ fun AppNavigation(
 
     LaunchedEffect(loginState.isSuccess) {
         if (loginState.isSuccess) {
+            currentUser?.let { cartViewModel.loadCartForUser(it.id, productState.products) }
+
             val currentEntry = navController.currentBackStackEntry
             val shouldRedirect = currentEntry
                 ?.savedStateHandle
@@ -145,6 +166,7 @@ fun AppNavigation(
                         user = currentUser!!,
                         onLogout = {
                             authViewModel.handleIntent(AuthIntent.Logout)
+                            cartViewModel.clearCart()
 
                             Toast.makeText(context, "Déconnexion réussie", Toast.LENGTH_SHORT).show()
 

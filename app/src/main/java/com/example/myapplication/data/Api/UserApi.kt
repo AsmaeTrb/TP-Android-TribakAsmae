@@ -10,8 +10,8 @@ import com.example.myapplication.data.Entities.LoginRequest
 interface UserApi {
     @GET("users")
     suspend fun getUsers(): List<User>
-    @POST("register")
-    suspend fun registerUser(@Body user: User): Response<Unit>
+    @POST("/register")
+    suspend fun registerUser(@Body user: User): Response<User>
 
     @POST("login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<User>
