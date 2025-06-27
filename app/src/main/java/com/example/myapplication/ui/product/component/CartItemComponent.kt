@@ -51,7 +51,7 @@ fun CartItemComponent(
                     model = imageUrl,
                     contentDescription = null,
                     modifier = Modifier
-                        .size(80.dp)
+                        .size(200.dp)
                         .clip(RoundedCornerShape(8.dp))
                 )
             } else {

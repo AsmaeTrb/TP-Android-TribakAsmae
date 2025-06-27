@@ -193,7 +193,11 @@ fun AppNavigation(
 
             composable(Routes.Checkout) {
                 if (currentUser != null) {
-                    CheckoutComponent(navController)
+                    CheckoutComponent(
+                        navController = navController,
+                        cartViewModel = cartViewModel ,
+                        onBack = { navController.popBackStack()  }// ✅ très important
+                    )
                 } else {
                     LaunchedEffect(Unit) {
                         Toast

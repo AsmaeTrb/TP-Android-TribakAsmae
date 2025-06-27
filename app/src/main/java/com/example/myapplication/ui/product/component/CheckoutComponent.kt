@@ -21,7 +21,8 @@ import com.example.myapplication.ui.product.screens.*
 @Composable
 fun CheckoutComponent(
     navController: NavController,
-    cartViewModel: CartViewModel = viewModel()
+    cartViewModel: CartViewModel,
+    onBack: () -> Unit
 ) {
     var currentStep by remember { mutableStateOf(1) }
 
@@ -63,8 +64,9 @@ fun CheckoutComponent(
                     )
                     2 -> PaymentScreen(
                         onConfirm = { currentStep = 3 },
-                        onBack = { currentStep = 1 }
-                    )
+                        onBack = { currentStep = 1 },
+                        cartViewModel = cartViewModel,
+                        )
                     3 -> ConfirmationScreen(
                         onFinish = {
                             navController.navigate(Routes.Home) {

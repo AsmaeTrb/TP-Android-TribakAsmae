@@ -40,10 +40,28 @@ class CartViewModel : ViewModel() {
         _state.value = _state.value.copy(items = currentItems)
     }
 
-    private fun removeFromCart(product: Product) {
+     fun removeFromCart(product: Product) {
         val currentItems = _state.value.items.filter { it.product.id != product.id }
         _state.value = _state.value.copy(items = currentItems)
     }
+    fun removeOneItem(cartItem: CartItem) {
+        val currentItems = _state.value.items.toMutableList()
+        val index = currentItems.indexOfFirst {
+            it.product.id == cartItem.product.id && it.selectedSize == cartItem.selectedSize
+        }
+
+        if (index != -1) {
+            val item = currentItems[index]
+            if (item.quantity > 1) {
+                currentItems[index] = item.copy(quantity = item.quantity - 1)
+            } else {
+                currentItems.removeAt(index)
+            }
+            _state.value = _state.value.copy(items = currentItems)
+        }
+    }
+
+
 
     private fun changeQuantity(product: Product, quantity: Int) {
         val currentItems = _state.value.items.toMutableList()
