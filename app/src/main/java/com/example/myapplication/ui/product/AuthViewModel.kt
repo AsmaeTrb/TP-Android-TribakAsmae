@@ -90,6 +90,10 @@ class AuthViewModel @Inject constructor(
             }
         }
     }
+    fun loadUserSession() {
+        val user = sessionManager.getUser()
+        _currentUser.value = user
+    }
 
     private fun logout() {
         _currentUser.value = null

@@ -25,7 +25,6 @@ fun AddToCartSection(
     price: Double,
     sizes: List<ProductSize>,
     onAddToCart: (String) -> Unit,
-    wishlistCount: Int = 7
 ) {
     var showSizeDialog by remember { mutableStateOf(false) }
     var selectedSize by remember { mutableStateOf(sizes.firstOrNull()?.size ?: "") }
@@ -46,19 +45,6 @@ fun AddToCartSection(
                 fontWeight = FontWeight.Bold
             )
 
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    Icons.Default.FavoriteBorder,
-                    contentDescription = "wishlist",
-                    tint = Color.Black,
-                    modifier = Modifier.size(18.dp)
-                )
-                Text(
-                    "+$wishlistCount",
-                    fontSize = 13.sp,
-                    modifier = Modifier.padding(start = 4.dp),
-                    color = Color.Black
-                )
             }
         }
 
@@ -166,4 +152,3 @@ fun AddToCartSection(
             )
         }
     }
-}

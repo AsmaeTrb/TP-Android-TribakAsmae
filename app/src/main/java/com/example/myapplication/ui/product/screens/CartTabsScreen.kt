@@ -17,11 +17,16 @@ import com.example.myapplication.ui.cart.CartViewModel
 import com.example.myapplication.ui.product.AuthViewModel
 import androidx.compose.material3.Divider
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
+import com.example.myapplication.data.Entities.User
+import com.example.myapplication.ui.product.WishlistViewModel
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CartTabsScreen(
     cartViewModel: CartViewModel,
     authViewModel: AuthViewModel,
+    wishlistViewModel: WishlistViewModel,
+    currentUser: User?,
     onNavigateToAuth: () -> Unit,
     onNavigateToCheckout: () -> Unit
 ) {
@@ -85,31 +90,38 @@ fun CartTabsScreen(
                     onNavigateToAuth = onNavigateToAuth,
                     authViewModel = authViewModel,
                     onNavigateToCheckout = onNavigateToCheckout)
-                1 -> {
-                    if (isLoggedIn) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("Vos favoris s'afficheront ici")
+                1 -> if (isLoggedIn) {
+                        currentUser?.let { user ->  // ✅ Vérification null explicite
+                            WishlistScreen(
+                                viewModel = wishlistViewModel,
+                                onRemove = { item ->
+                                    wishlistViewModel.removeFromWishlist(user.id, item.productId)
+                                }
+                            )
+                            // Chargement des favoris
+                            LaunchedEffect(user.id) {
+                                wishlistViewModel.loadWishlist(user.id)
+                            }
+                        } ?: run {  // ❌ Si currentUser est null
+                            Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                                Text("Erreur de chargement")
+                            }
                         }
                     } else {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(24.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text("Connectez-vous pour accéder à vos favoris")
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Button(onClick = onNavigateToAuth) {
-                                Text("Se connecter")
-                            }
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(24.dp),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("Connectez-vous pour accéder à vos favoris")
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Button(onClick = onNavigateToAuth) {
+                            Text("Se connecter")
                         }
                     }
                 }
             }
-        }
-    }
-}
+             }
+         } }

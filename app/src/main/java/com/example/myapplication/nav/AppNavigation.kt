@@ -40,7 +40,8 @@ fun AppNavigation(
     productViewModel: ProductViewModel = viewModel(),
     cartViewModel: CartViewModel = viewModel(),
     authViewModel: AuthViewModel = viewModel(),
-    orderViewModel: OrderViewModel = viewModel()
+    orderViewModel: OrderViewModel = viewModel(),
+    wishlistViewModel: WishlistViewModel = viewModel()
 ) {
     val navController = rememberNavController()
     val productState by productViewModel.state.collectAsState()
@@ -136,8 +137,11 @@ fun AppNavigation(
                         product = product,
                         cartViewModel = cartViewModel,
                         navController = navController,
+                        wishlistViewModel = wishlistViewModel,
+                        currentUser = currentUser,             // et celui-ci aussi
                         onBack = { navController.popBackStack() }
                     )
+
                 } else {
                     Text("Produit non trouvé")
                 }
@@ -147,6 +151,9 @@ fun AppNavigation(
                 CartTabsScreen(
                     cartViewModel = cartViewModel,
                     authViewModel = authViewModel,
+                    wishlistViewModel = wishlistViewModel,
+
+                            currentUser = currentUser,
                     onNavigateToAuth = {
                         navController.currentBackStackEntry
                             ?.savedStateHandle
@@ -157,7 +164,7 @@ fun AppNavigation(
                         }
                     },
                     onNavigateToCheckout = {
-                        navController.navigate(Routes.Checkout )
+                        navController.navigate(Routes.Checkout)
                     }
                 )
             }

@@ -4,6 +4,7 @@ import com.example.myapplication.data.Api.CartApi
 import com.example.myapplication.data.Api.OrderApi
 import com.example.myapplication.data.Api.ProductApi
 import com.example.myapplication.data.Api.UserApi
+import com.example.myapplication.data.Api.WishlistApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,6 +51,8 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideCartApi(retrofit: Retrofit): CartApi = retrofit.create(CartApi::class.java)
-
+    @Provides
+    @Singleton
+    fun provideWishlistApi(retrofit: Retrofit): WishlistApi = retrofit.create(WishlistApi::class.java)
 
 }
