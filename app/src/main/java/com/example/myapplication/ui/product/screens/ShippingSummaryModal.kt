@@ -174,13 +174,6 @@ fun ShippingSummaryModal(
                     Text("Free", color = Color.Green)
                 }
 
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text("Taxes based on your location")
-                    Text("US$ 0.00")
-                }
             }
 
             // Total

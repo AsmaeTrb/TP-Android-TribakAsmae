@@ -57,6 +57,7 @@ fun ConfirmationScreen(
 ) {
     val state by orderViewModel.state.collectAsState()
 
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -102,8 +103,8 @@ fun ConfirmationScreen(
                             // Ligne avec icône pour le numéro de commande
                             InfoRowWithIcon(
                                 icon = Icons.Default.Receipt,
-                                label = "email client",
-                                value = "${order.email}"
+                                label = "Numéro client",
+                                value = "#${order.email}"
                             )
 
                             // Ligne avec icône pour le montant

@@ -16,7 +16,7 @@ data class Order(
 @SerializedName("phone") val phone: String,              // au lieu de "phoneNumber"
 @SerializedName("city") val city: String,
 @SerializedName("country") val country: String,
-     @SerializedName("email") val email: String // 👈 ce champ est obligatoire maintenant
+@SerializedName("email") val email: String // 👈 ce champ est obligatoire maintenant
 
  )
 

@@ -143,7 +143,8 @@ fun PaymentScreen(
                             userId = user.id,
                             items = cartState.items,
                             total = total,
-                            email = shippingAddress.email,
+                            email = shippingAddress.email.takeIf { it.isNotBlank() } ?: user.email ?: "email@inconnu.com",
+
                             shippingAddress = shippingAddress
                         )
 
