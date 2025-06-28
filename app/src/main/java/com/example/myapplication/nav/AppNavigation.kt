@@ -169,17 +169,17 @@ fun AppNavigation(
                         onLogout = {
                             authViewModel.handleIntent(AuthIntent.Logout)
                             cartViewModel.clearCart()
-
                             Toast.makeText(context, "Déconnexion réussie", Toast.LENGTH_SHORT).show()
 
                             navController.navigate(Routes.Login) {
-                                popUpTo(Routes.Home) { inclusive = false } // garde Home dans la stack
+                                popUpTo(Routes.Home) { inclusive = false }
                                 launchSingleTop = true
                             }
-                        }
-
-
+                        },
+                        orderViewModel = orderViewModel,
+                        navController = navController
                     )
+
                 } else {
                     AuthWelcomeScreen(
                         onNavigateToLogin = { navController.navigate(Routes.Login) },
@@ -213,6 +213,14 @@ fun AppNavigation(
                     onLoginSuccess = { /* Géré via LaunchedEffect */ },
                     onNavigateToRegister = { navController.navigate(Routes.Register) }
                 )
+            }
+            composable(
+                route = "orderDetail/{userId}",
+                arguments = listOf(navArgument("userId") { type = NavType.StringType })
+            ) { backStackEntry ->
+                val userId = backStackEntry.arguments?.getString("userId")
+                // Affiche les détails de la commande ici
+                Text("Détails de la commande de l’utilisateur $userId") // à remplacer plus tard
             }
 
             composable(Routes.Checkout) {

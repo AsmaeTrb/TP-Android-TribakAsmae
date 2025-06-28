@@ -143,6 +143,7 @@ fun PaymentScreen(
                             userId = user.id,
                             items = cartState.items,
                             total = total,
+                            email = shippingAddress.email,
                             shippingAddress = shippingAddress
                         )
 

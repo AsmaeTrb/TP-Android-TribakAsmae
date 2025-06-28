@@ -7,6 +7,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface OrderApi {
     @POST("orders")
@@ -14,5 +15,8 @@ interface OrderApi {
 
     @GET("orders")
     suspend fun getOrders(): List<Order>
+    @GET("orders")
+    suspend fun getOrdersByUserId(@Query("userId") userId: String? = null): List<Order>
+
 
 }

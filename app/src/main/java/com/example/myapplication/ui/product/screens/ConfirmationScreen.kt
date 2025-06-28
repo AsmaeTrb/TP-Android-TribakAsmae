@@ -102,8 +102,8 @@ fun ConfirmationScreen(
                             // Ligne avec icône pour le numéro de commande
                             InfoRowWithIcon(
                                 icon = Icons.Default.Receipt,
-                                label = "Numéro client",
-                                value = "#${order.userId}"
+                                label = "email client",
+                                value = "${order.email}"
                             )
 
                             // Ligne avec icône pour le montant

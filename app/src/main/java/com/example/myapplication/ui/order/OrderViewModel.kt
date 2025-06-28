@@ -2,6 +2,8 @@ package com.example.myapplication.ui.order
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.Entities.Address
+import com.example.myapplication.data.Entities.Order
+import com.example.myapplication.data.Entities.User
 import com.example.myapplication.data.Repository.OrderRepository
 import com.example.myapplication.data.Session.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,6 +17,11 @@ class OrderViewModel @Inject constructor(
     private val repository: OrderRepository,
     private val sessionManager: SessionManager
 ): ViewModel() {
+    private val _userOrders = MutableStateFlow<List<Order>>(emptyList())
+    val userOrders: StateFlow<List<Order>> = _userOrders.asStateFlow()
+
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     private val _state = MutableStateFlow<OrderState>(OrderState.Idle)
     val state: StateFlow<OrderState> = _state.asStateFlow()
@@ -25,6 +32,20 @@ class OrderViewModel @Inject constructor(
 
     fun setShippingAddress(address: Address) {
         _shippingAddress.value = address
+    }
+
+    fun loadOrders(userId: String?) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val result = repository.getOrders(userId)
+                _userOrders.value = result
+            } catch (e: Exception) {
+                _userOrders.value = emptyList()
+            } finally {
+                _isLoading.value = false
+            }
+        }
     }
 
     fun handleIntent(intent: OrderIntent) {
@@ -42,4 +63,7 @@ class OrderViewModel @Inject constructor(
             }
         }
     }
+    val currentUser: User?
+        get() = sessionManager.getUser()
+
 }

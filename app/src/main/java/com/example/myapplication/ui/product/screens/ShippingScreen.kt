@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 fun ShippingScreen(
     cartViewModel: CartViewModel,
     onContinue: (Address) -> Unit,
+
     onBack: () -> Unit
 ) {
     val scrollState = rememberScrollState()
@@ -192,9 +193,12 @@ fun ShippingScreen(
                     postalCode = zipCode,          // ✅
                     phone = phone,                 // ✅
                     city = city,
-                    country = "FR"
+                    country = "FR",
+                    email = email   // ✅ ici tu mets le vrai email saisi
+
                 )
                 onContinue(shippingAddress)
+
             },
             modifier = Modifier
                 .fillMaxWidth()
