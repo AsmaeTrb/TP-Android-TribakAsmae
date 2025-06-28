@@ -45,6 +45,8 @@ fun AddToCartSection(
                 fontWeight = FontWeight.Bold
             )
 
+            Row(verticalAlignment = Alignment.CenterVertically) {
+
             }
         }
 
@@ -152,3 +154,4 @@ fun AddToCartSection(
             )
         }
     }
+}
