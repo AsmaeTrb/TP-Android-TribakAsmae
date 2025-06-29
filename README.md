@@ -1,4 +1,4 @@
-# 🛍️ APPLICATION MOBILE E-COMMERCE - TRIBAK STORE
+![image](https://github.com/user-attachments/assets/96f2a152-1a73-4a67-b6de-da25079aa370)# 🛍️ APPLICATION MOBILE E-COMMERCE - TRIBAK STORE
 
 Une application mobile de e-commerce développée en **Kotlin avec Jetpack Compose**, permettant aux utilisateurs de parcourir des produits, consulter les détails, ajouter au panier, passer commande et gérer leurs favoris.
 
@@ -6,7 +6,8 @@ Une application mobile de e-commerce développée en **Kotlin avec Jetpack Compo
 > Université Abdelmalek Essaâdi — FPL Larache  
 > Développé par **Mohamed Tribak**
 
----
+---![image](https://github.com/user-attachments/assets/29b208ed-01ea-4a2f-8937-1801ce6e0a9e)
+
 
 ## ✨ Fonctionnalités principales
 
@@ -64,12 +65,12 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
 
  🏠 Écran d’
 - Invitation à s’inscrire ou se connecter pour une expérience personnalisée.
-![Écran d invitation](https://github.com/user-attachments/assets/fc4a8b93-fcc9-4c83-8247-381c3e93eff1)
+![Écran d invitation](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginregister.jpeg)
 ---
 
  🔐 Authentification
-![Écran de connexion](https://github.com/user-attachments/assets/3476d6a9-65ce-4765-9587-56c246eed795)
-![Écran d’inscription](https://github.com/user-attachments/assets/9b9c84b3-90ca-48bc-b7c1-c88c2ff126eb)
+![Écran de connexion](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginpage.jpeg)
+![Écran d’inscription](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/registerpage.jpeg)
 - Inscription (email, mot de passe, prénom, nom)  
 - Connexion (email + mot de passe)
 
@@ -78,10 +79,12 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
  🛍️ Catalogue
 - Parcourir la liste des produits (avec image, nom)  
 - Produits classés par catégories (avec possibilité de recherche)
-![Catalogue](https://github.com/user-attachments/assets/e14ab993-17ef-4ecf-9d23-0de3305e549d)
-![dresses](https://github.com/user-attachments/assets/05e35f1f-ee80-4a4a-b4c6-25a212d1b27f)
+![Catalogue](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/page%20home.jpeg)
+![dresses](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/catalogue2.jpeg)
 ![jumpsuits](https://github.com/user-attachments/assets/976951dc-7d5e-40e2-9baf-2bf5711c5d90)
-![tops](https://github.com/user-attachments/assets/4517c401-37cd-4162-8e16-eb4f3b55eb5f)
+![tops](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/catalogue3.jpeg)
+![bags](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/ctalogue4.jpeg)
+
 
 
 
@@ -91,7 +94,7 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
  📄 Détail produit
 - Affiche l’image, le titre, la description, la disponibilité et le prix  
 - Sélection de taille et de quantité via un `BottomSheet`
-![detail1](https://github.com/user-attachments/assets/fa395188-7df4-4cac-8cd8-c817ca530350)
+![detail1](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/pagedetail1.jpeg)
 ![detail2](https://github.com/user-attachments/assets/6e88de24-6f71-44b6-b537-206538cedc91)
 
 
@@ -101,25 +104,27 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
 - Modal interactif pour choisir la taille  
 - Affichage du stock disponible par taille  
 - Vérification des quantités avant ajout au panier
-![quantity](https://github.com/user-attachments/assets/80c76b49-a7ee-4606-bafe-90b509b7bb44)
+![quantity](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/taille-quantity.jpeg)
+
 
 ---
 
 ### 🛒 Panier & Checkout
 - Aperçu rapide du panier avec quantités et tailles choisies
-![panier1](https://github.com/user-attachments/assets/11af0265-5bd6-49ea-b0cd-534f35668673)
-![panier2](https://github.com/user-attachments/assets/aa7eaf1d-7da7-47c2-be72-ca64248cd6ee)
+![panier1](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/paniervide.jpeg)
+![panier2](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/panierajouter.jpeg)
 - Sélection du mode de paiement :
   - Carte bancaire : formulaire (nom, numéro, date, CVV)
   - Redirection vers PayPal (simulée)  
 - Calcul du total (produits  + frais de livraison)  
-- Mise à jour automatique du stock après validation
-![image](https://github.com/user-attachments/assets/20a480f2-e929-42dc-b280-44ee6b2884e9)
-![image](https://github.com/user-attachments/assets/0d9c594a-8b2c-466f-bee0-e1da5fbf6449)
-![image](https://github.com/user-attachments/assets/8ed9e689-3118-4a4f-bc67-2a5dc1109593)
-![image](https://github.com/user-attachments/assets/f9c125ed-c8c2-44d7-a315-3d918ab76c76)
-![image](https://github.com/user-attachments/assets/7a44c8e7-4f7d-4489-9b75-a25aac19dced)
-![image](https://github.com/user-attachments/assets/a7b07ca2-a490-4165-b329-afe670f6db95)
+- Mise à jour automatique du stock après validationhttps:
+![image]https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/checkout-shipping.jpeg
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/bagdetails.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/checkout-shipping1.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/checkoutpayment.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/shippingmethodcard.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/shippingmethodepaypal.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/checkoutconfirmation.jpeg
 
 
 ---
@@ -128,9 +133,9 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
 - Affichage de l’e-mail de l’utilisateur connecté  
 - Historique des commandes avec statut (ou message « Aucune commande »)  
 - Accès aux favoris
-![image](https://github.com/user-attachments/assets/497dd376-6df6-41db-b7de-81959eccbe4f)
-![image](https://github.com/user-attachments/assets/e4e8ef52-8a8d-4a19-b7ef-dffabb22a0e7)
-![image](https://github.com/user-attachments/assets/9b57803a-cc8f-4078-92d8-914eb87b211b)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/profil.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/profil-historiquecommmande.jpeg)
+![image](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/favorisnonconnecte.jpeg)
 
 
 
