@@ -1,13 +1,10 @@
-![image](https://github.com/user-attachments/assets/96f2a152-1a73-4a67-b6de-da25079aa370)# 🛍️ APPLICATION MOBILE E-COMMERCE - TRIBAK STORE
+# 🛍️ APPLICATION MOBILE E-COMMERCE - TRIBAK STORE
 
 Une application mobile de e-commerce développée en **Kotlin avec Jetpack Compose**, permettant aux utilisateurs de parcourir des produits, consulter les détails, ajouter au panier, passer commande et gérer leurs favoris.
 
 > Projet réalisé dans le cadre du Master DevOps & Cloud Computing  
 > Université Abdelmalek Essaâdi — FPL Larache  
 > Développé par **Mohamed Tribak**
-
----![image](https://github.com/user-attachments/assets/29b208ed-01ea-4a2f-8937-1801ce6e0a9e)
-
 
 ## ✨ Fonctionnalités principales
 
@@ -69,11 +66,10 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
 ---
 
  🔐 Authentification
-![Écran de connexion](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginpage.jpeg)
-![Écran d’inscription](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/registerpage.jpeg)
 - Inscription (email, mot de passe, prénom, nom)  
 - Connexion (email + mot de passe)
-
+![Écran de connexion](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginpage.jpeg)
+![Écran d’inscription](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/registerpage.jpeg)
 ---
 
  🛍️ Catalogue
