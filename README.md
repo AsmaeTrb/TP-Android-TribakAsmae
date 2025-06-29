@@ -106,8 +106,6 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
 ---
 
 ### 🛒 Panier & Checkout
-![Panier](./assets/cart.png)  
-![Paiement](./assets/payment.png)
 - Aperçu rapide du panier avec quantités et tailles choisies
 ![panier1](https://github.com/user-attachments/assets/11af0265-5bd6-49ea-b0cd-534f35668673)
 ![panier2](https://github.com/user-attachments/assets/aa7eaf1d-7da7-47c2-be72-ca64248cd6ee)
