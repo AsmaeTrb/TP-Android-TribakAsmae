@@ -62,14 +62,14 @@ Voici un aperçu visuel des principales fonctionnalités de l'application. Chaqu
 
  🏠 Écran d’
 - Invitation à s’inscrire ou se connecter pour une expérience personnalisée.
-![Écran d invitation](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginregister.jpeg)
+https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginregister.jpeg
 ---
 
  🔐 Authentification
 - Inscription (email, mot de passe, prénom, nom)  
 - Connexion (email + mot de passe)
-![Écran de connexion](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginpage.jpeg)
-![Écran d’inscription](https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/registerpage.jpeg)
+(https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/loginpage.jpeg)
+(https://raw.githubusercontent.com/AsmaeTrb/TP-Android-TribakAsmae/refs/heads/master/registerpage.jpeg)
 ---
 
  🛍️ Catalogue
